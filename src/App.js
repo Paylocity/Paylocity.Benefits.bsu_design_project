@@ -1,85 +1,114 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import card from './test-card.jpg';
 
 function App() {
   return (
     <div className="App">
-      <header>
+      <header className="App-header">
+        <img id="Menu"/>
         <span>Benefits</span>
       </header>
-      <div id="view-pane">
-        <div>
+      <div className="View-pane">
+        <div className="Toast">
           <span>Open Enrollment ends Dec. 15</span>
-          <span>Begin</span>
+          <span className="Button">Begin</span>
         </div>
-        <div>
+        <div className="Coverage-info">
           <span>Coverage Date</span>
-          <span>July 29, 2019</span>
+          <span id="Coverage-date">July 29, 2019</span>
         </div>
-        <div id="card-cache">
-          <div>
-            <span>Dental</span>
+        <hr/>
+        <div className="Card-cache">
+          <div className="Card">
+            <img src={card} className="Card-img"/>
+            <div>Dental</div>
           </div>
-          <div>
-            <span>Vision</span>
+          <div className="Card">
+            <img src={card} className="Card-img"/>
+            <div>Vision</div>
           </div>
         </div>
+        <hr/>
         <div>
-          <span>Spending Accounts</span>
-          <div>
-            <span>Medical FSA</span>
-            <span>Paylocity</span>
-            <span>$2,971.44</span>
-            <span>Available Balance</span>
+          <div className="Section">Spending Accounts</div>
+          <hr/>
+          <div className="Partition">
+            <div className="Service">
+              <div>Medical FSA</div>
+              <div className="Provider">Paylocity</div>
+            </div>
+            <div className="Balance">
+              <div className="Balance-amount">$2,971.44</div>
+              <div>Available Balance</div>
+            </div>
           </div>
-          <div>
-            <span>Dependent Care</span>
-            <span>Paylocity</span>
-            <span>$1,365.02</span>
-            <span>Available Balance</span>
+          <hr/>
+          <div className="Partition">
+            <div className="Service">
+              <div>Dependent Care</div>
+              <div className="Provider">Paylocity</div>
+            </div>
+            <div className="Balance">
+              <div className="Balance-amount">$1,365.02</div>
+              <div>Available Balance</div>
+            </div>
           </div>
-          <div>
-            <span>Transportation</span>
-            <span>Paylocity</span>
-            <span>$189.27</span>
-            <span>Available Balance</span>
+          <hr/>
+          <div className="Partition">
+            <div className="Service">
+              <div>Transportation</div>
+              <div className="Provider">Paylocity</div>
+            </div>
+            <div className="Balance">
+              <div className="Balance-amount">$189.27</div>
+              <div>Available Balance</div>
+            </div>
           </div>
         </div>
+        <hr/>
         <div>
-          <span>Benefits Coverage</span>
-          <div>
+          <div className="Section">Benefits Coverage</div>
+          <hr/>
+          <div className="Partition">
             <span>Medical</span>
             <span>Employee + Family (6)</span>
             <span>Blue Cross Blue Shield IL</span>
           </div>
-          <div>
+          <hr/>
+          <div className="Partition">
             <span>Vision</span>
             <span>Employee + Family (6)</span>
             <span>VSP</span>
           </div>
-          <div>
+          <hr/>
+          <div className="Partition">
             <span>Employee Basic Life Insurance</span>
             <span>$80,000.00 Coverage</span>
             <span>New York Life</span>
           </div>
-          <div>
+          <hr/>
+          <div className="Partition">
             <span>Employee Short Term Disability</span>
             <span>60% - $1,307.65 Coverage</span>
             <span>Guardian</span>
           </div>
-          <div>
+          <hr/>
+          <div className="Partition">
             <span>Employee Voluntary Life Insurance</span>
             <span>$200,000.00 Coverage</span>
             <span>New York Life</span>
           </div>
+          <hr/>
           <div>
-            <span>Waived Benefits</span>
-            <div>
+            <div className="Section">Waived Benefits</div>
+            <hr/>
+            <div className="Partition">
               <span>Employee Long Term Disability</span>
               <span>Guardian</span>
             </div>
           </div>
+          <hr/>
         </div>
       </div>
       <footer>

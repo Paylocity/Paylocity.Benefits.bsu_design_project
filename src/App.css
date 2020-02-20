@@ -1,5 +1,11 @@
+hr {
+  border: 0.5px solid #CCCCCC;
+  margin: 0;
+}
+
 .App {
-  text-align: center;
+  background-color: #F5F5F5;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -7,32 +13,110 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  min-height: 1vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  font-weight: 500;
+  color:  #222222;
+  padding: 2vh;
 }
 
-.App-link {
-  color: #61dafb;
+.Toast {
+  background-color: #41A8D2;
+  font-size: calc(px + 2vmin);
+  color: #FFFFFF;
+  padding: 2vh 5vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Button {
+  border: 1px solid white;
+  border-radius: 3px;
+  font-size: calc(6px + 2vmin);
+  line-height: calc(6px + 2vmin);
+  padding: 5px 15px;
+  float: right;
+}
+
+.Coverage-info {
+  padding: 2vh 5vw;
+  font-weight: bold;
+  font-size: calc(10px + 2vmin);
+  line-height: calc(10px + 2vmin);
+  color: #222222;
+}
+
+.Card-cache {
+  padding: 10px calc(5% - 10px);
+  background-color: #EAEAEA;
+}
+
+.Card {
+  display: inline-block;
+  margin: 5px 10px;
+  text-align: center;
+  font-weight: 500;
+  color: #41A8D2;
+}
+
+.Card-img {
+  margin-top: 5px;
+  height: 14vh;
+  width: 42vw;
+  border-radius: 7px;
+}
+
+.Section {
+  padding: 0.5vh 2vw;
+  font-size: calc(8px + 2vmin);
+  font-weight: bold;
+  color: #666666;
+}
+
+.Partition {
+  background-color: #FFFFFF;
+  color: #393939;
+  font-weight: bold;
+  padding: 1.5vh 5vw;
+  width:
+}
+
+.Service {
+  width: 49%;
+  display: inline-block;
+  font-size: calc(10px + 2vmin);
+}
+
+.Provider {
+  color: #666666;
+  font-size: calc(8px + 2vmin);
+  font-weight: 500;
+}
+
+.Balance {
+  width: 49%;
+  text-align: right;
+  font-size: calc(6px + 2vmin);
+  font-weight: 100;
+  color: #666666;
+  float: right;
+}
+
+.Balance-amount {
+  font-size: calc(20px + 2vmin);
+  line-height: calc(20px + 2vmin);
+  color: #3DC270;
+}
+
+#Menu {
+  float: left;
+}
+
+#Coverage-date {
+  color: #41A8D2;
+  font-weight: normal;
+  float: right;
 }
