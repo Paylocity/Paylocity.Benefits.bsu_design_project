@@ -1,5 +1,7 @@
 React installation instructions: https://www.liquidweb.com/kb/install-react-js-windows/
 
+Maybe use this for hamberder: https://github.com/mleko/react-hamburger-button
+
 /////////////////////////////////////////////////////////////////////
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

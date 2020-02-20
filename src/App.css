@@ -3,6 +3,32 @@ hr {
   margin: 0;
 }
 
+header {
+  background-color: #F5F5F5;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  min-height: 1vh;
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+  font-weight: 500;
+  color:  #222222;
+  padding: 2vh;
+}
+
+footer {
+  background-color: #F5F5F5;
+  position: sticky;
+  bottom: 0;
+  z-index: 999;
+  min-height: 1vh;
+  text-align: center;
+  font-size: calc(6px + 2vmin);
+  font-weight: 500;
+  color:  #222222;
+  padding: 2vh;
+}
+
 .App {
   background-color: #F5F5F5;
   min-height: 100vh;
@@ -11,18 +37,6 @@ hr {
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-.App-header {
-  min-height: 1vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  font-weight: 500;
-  color:  #222222;
-  padding: 2vh;
 }
 
 .Toast {
@@ -66,6 +80,7 @@ hr {
   margin-top: 5px;
   height: 14vh;
   width: 42vw;
+  max-width: 250px;
   border-radius: 7px;
 }
 
@@ -81,13 +96,16 @@ hr {
   color: #393939;
   font-weight: bold;
   padding: 1.5vh 5vw;
-  width:
 }
 
 .Service {
   width: 49%;
   display: inline-block;
   font-size: calc(10px + 2vmin);
+}
+
+.Partition.Service {
+  width: 100%;
 }
 
 .Provider {
@@ -109,6 +127,12 @@ hr {
   font-size: calc(20px + 2vmin);
   line-height: calc(20px + 2vmin);
   color: #3DC270;
+}
+
+.Plan {
+  color: #3DC270;
+  font-size: calc(8px + 2vmin);
+  font-weight: normal;
 }
 
 #Menu {
