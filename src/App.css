@@ -8,7 +8,6 @@ header {
   position: sticky;
   top: 0;
   z-index: 999;
-  min-height: 1vh;
   text-align: center;
   font-size: calc(10px + 2vmin);
   font-weight: 500;
@@ -17,16 +16,20 @@ header {
 }
 
 footer {
+  border-top: 0.5px solid #CCCCCC;
   background-color: #F5F5F5;
   position: sticky;
   bottom: 0;
   z-index: 999;
-  min-height: 1vh;
   text-align: center;
   font-size: calc(6px + 2vmin);
   font-weight: 500;
   color:  #222222;
-  padding: 2vh;
+  padding: 3vh;
+}
+
+footer span {
+  margin: 25px;
 }
 
 .App {
