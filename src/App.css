@@ -32,6 +32,17 @@ footer span {
   margin: 25px;
 }
 
+button {
+  color: #FFFFFF;
+  background-color: #41A8D2;
+  border: 1px solid #FFFFFF;
+  border-radius: 3px;
+  font-size: calc(6px + 2vmin);
+  line-height: calc(6px + 2vmin);
+  padding: 5px 15px;
+  float: right;
+}
+
 .App {
   background-color: #F5F5F5;
   min-height: 100vh;
@@ -47,15 +58,6 @@ footer span {
   font-size: calc(px + 2vmin);
   color: #FFFFFF;
   padding: 2vh 5vw;
-}
-
-.Button {
-  border: 1px solid white;
-  border-radius: 3px;
-  font-size: calc(6px + 2vmin);
-  line-height: calc(6px + 2vmin);
-  padding: 5px 15px;
-  float: right;
 }
 
 .Coverage-info {
@@ -138,8 +140,14 @@ footer span {
   font-weight: normal;
 }
 
+.Current-selection {
+  color: #11779C;
+}
+
 #Menu {
-  float: left;
+  color: #11779C;
+  position: absolute;
+  left: 10px;
 }
 
 #Coverage-date {
