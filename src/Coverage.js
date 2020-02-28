@@ -2,9 +2,9 @@ import React from 'react';
 import card from './test-card.jpg';
 import './App.css';
 
-const Coverage = () => {
+const Coverage = ({plan}) => {
     return(
-        <div className="Coverage">
+        <div className="View">
             <div className="Toast">
                 <span>Open Enrollment ends Dec. 15</span>
                 <button type="submit">Begin</button>

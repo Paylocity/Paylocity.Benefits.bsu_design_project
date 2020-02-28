@@ -5,6 +5,7 @@ hr {
 
 header {
   background-color: #F5F5F5;
+  border-bottom: 0.5px solid #CCCCCC;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -28,11 +29,13 @@ footer {
   padding: 3vh;
 }
 
-footer span {
-  margin: 25px;
+footer button {
+  border: none;
+  background: none;
+  margin: 0 25px;
 }
 
-button {
+button[type=submit] {
   color: #FFFFFF;
   background-color: #41A8D2;
   border: 1px solid #FFFFFF;
@@ -58,6 +61,10 @@ button {
   font-size: calc(px + 2vmin);
   color: #FFFFFF;
   padding: 2vh 5vw;
+}
+
+.View {
+  min-height: 100vh;
 }
 
 .Coverage-info {
@@ -110,7 +117,7 @@ button {
 }
 
 .Partition.Service {
-  width: 100%;
+  width: 90vw;
 }
 
 .Provider {
