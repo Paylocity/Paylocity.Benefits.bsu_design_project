@@ -1,0 +1,1 @@
+The files "Database.key" and "Eligible.key" must be located in this folder for the cache backend to work.
