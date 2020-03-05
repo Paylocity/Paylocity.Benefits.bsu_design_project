@@ -41,7 +41,7 @@ const PlanDetails = ({plan}) => {
                 <div className="Percent-bar"></div>
                 <div className="Deductible Subtext">
                     <span>You are </span>
-                    <span className="Amount">$359.53</span>
+                    <span className="Deductible Subtext Amount">$359.53</span>
                     <span> away from your deductible</span>
                 </div>
             </div>
@@ -62,26 +62,26 @@ const PlanDetails = ({plan}) => {
                 <hr/>
                 <div className="Partition Service">
                     <span>Swanson Family Medicine</span>
-                    <span>$109.92</span>
-                    <span>8/4/2018</span>
+                    <span className="Claim Amount">$109.92</span>
+                    <div className="Claim-date">8/4/2018</div>
                 </div>
                 <hr/>
                 <div className="Partition Service">
                     <span>Modern Day Dentistry</span>
-                    <span>$39.29</span>
-                    <span>7/23/2018</span>
+                    <span className="Claim Amount">$39.29</span>
+                    <div className="Claim-date">7/23/2018</div>
                 </div>
                 <hr/>
                 <div className="Partition Service">
                     <span>Pediatric Associates</span>
-                    <span>$201.23</span>
-                    <span>7/23/2018</span>
+                    <span className="Claim Amount">$201.23</span>
+                    <div className="Claim-date">7/23/2018</div>
                 </div>
                 <hr/>
                 <div className="Partition Service">
                     <span>CVS</span>
-                    <span>$5.32</span>
-                    <span>7/1/2018</span>
+                    <span className="Claim Amount">$5.32</span>
+                    <div className="Claim-date">7/1/2018</div>
                 </div>
             </div>
         </div>

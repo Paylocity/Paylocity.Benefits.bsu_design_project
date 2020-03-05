@@ -121,6 +121,16 @@ button[type=submit] {
   font-size: calc(10px + 2vmin);
 }
 
+.Claim.Amount {
+  float: right;
+}
+
+.Claim-date {
+  font-size: calc(8px + 2vmin);
+  color: #666666;
+  font-weight: 400;
+}
+
 .Deductible.Section {
   margin: 5px;
 }
