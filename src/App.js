@@ -27,30 +27,32 @@ const App = () => {
     getEligible();
   }, []);
 
-  if(currentPage == pages.COVERAGE) return (
+  return (
     <div className="App">
       <header>
         <span id="Menu">Menu</span>
         <span>Benefits</span>
       </header>
-      <Coverage plan={eligible.plan}/>
-      <footer>
-        <button className="Current-selection">Coverage</button>
-        <button onClick={() => setCurrentPage(pages.EXTRAS)}>Extras</button>
-      </footer>
-    </div>
-  );
-  else if(currentPage == pages.EXTRAS) return (
-    <div className="App">
-      <header>
-        <span id="Menu">Menu</span>
-        <span>Benefits</span>
-      </header>
-      <Extras/>
-      <footer>
-        <button onClick={() => setCurrentPage(pages.COVERAGE)}>Coverage</button>
-        <button className="Current-selection">Extras</button>
-      </footer>
+      {(function () {
+        if(currentPage == pages.COVERAGE) return (
+          <div>
+            <Coverage eligible={eligible}/>
+            <footer>
+              <span className="Current-selection">Coverage</span>
+              <span onClick={() => setCurrentPage(pages.EXTRAS)}>Extras</span>
+            </footer>
+          </div>
+        );
+        else if(currentPage == pages.EXTRAS) return (
+          <div>
+            <Extras/>
+            <footer>
+              <span onClick={() => setCurrentPage(pages.COVERAGE)}>Coverage</span>
+              <span className="Current-selection">Extras</span>
+            </footer>
+          </div>
+        );
+      })()}
     </div>
   );
 }

@@ -1,8 +1,18 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import PlanDetails from './PlanDetails';
 import card from './test-card.jpg';
 import './App.css';
 
-const Coverage = ({plan}) => {
+const Coverage = ({eligible}) => {
+    const plans = {
+        MEDICAL: 0
+    }
+
+    const viewEligibleMedical = function () {
+        ReactDOM.render(<PlanDetails plan={plans.MEDICAL}/>, document.getElementById('root'));
+    }
+
     return(
         <div className="View">
             <div className="Toast">
@@ -65,7 +75,9 @@ const Coverage = ({plan}) => {
             <div>
                 <div className="Section">Benefits Coverage</div>
                 <hr/>
-                <div className="Partition Service">
+                <div 
+                    className="Partition Service"
+                    onClick={viewEligibleMedical}>
                     <div>Medical</div>
                     <div className="Plan">Employee + Family (6)</div>
                     <div className="Provider">Blue Cross Blue Shield IL</div>
