@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS InsuranceProvider;
 DROP TABLE IF EXISTS User;
 
 CREATE TABLE User (
-  id           INT           PRIMARY KEY AUTO_INCREMENT,
+  id           INTEGER       PRIMARY KEY AUTO_INCREMENT,
   name_last    VARCHAR(127)  NOT NULL,
   name_first   VARCHAR(127)  NOT NULL,
   name_middle  VARCHAR(127),
@@ -18,7 +18,7 @@ CREATE TABLE User (
 );
 
 CREATE TABLE InsuranceProvider (
-  id                   INT           PRIMARY KEY AUTO_INCREMENT,
+  id                   INTEGER       PRIMARY KEY AUTO_INCREMENT,
   description          VARCHAR(127)  NOT NULL,
   provider_npi         VARCHAR(31)   NOT NULL,
   provider_org         VARCHAR(127),
@@ -37,13 +37,14 @@ CREATE TABLE InsuranceProvider (
 );
 
 CREATE TABLE UserInsurancePlan (
-  id                     INT          PRIMARY KEY AUTO_INCREMENT,
+  id                     INTEGER      PRIMARY KEY AUTO_INCREMENT,
   description            VARCHAR(127) NOT NULL,
-  user_id                INT          NOT NULL,
-  provider_id            INT          NOT NULL,
+  user_id                INTEGER      NOT NULL,
+  provider_id            INTEGER      NOT NULL,
   payer_id               VARCHAR(31)  NOT NULL,
   member_id              VARCHAR(63)  NOT NULL,
   network                VARCHAR(7),
+  plan_level             VARCHAR(31),
   cached_plan            BLOB,
   cached_plan_timestamp  DATETIME,
   FOREIGN KEY (user_id    ) REFERENCES User(id),

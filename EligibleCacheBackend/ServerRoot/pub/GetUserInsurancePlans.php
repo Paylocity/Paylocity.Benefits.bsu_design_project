@@ -12,7 +12,7 @@
        Error                 If this is present and true, an error was
                              encountered.
 
-       ErrorDescription      Only present if Error is true. Describes the
+       Error_Description     Only present if Error is true. Describes the
                              encountered problem in human-readable format.
 
        UserInsurancePlans    Array of insurance plan objects,
@@ -45,15 +45,15 @@ function setJSONHTTPContentType(){
  *  @retval string Database API key. */
 
 function getAndValidateDatabaseAPIKey(){
-  if(file_exists('../APIKeys/Database.key')){
-    return trim(file_get_contents('../APIKeys/Database.key'));
+  if(!file_exists('../APIKeys/Database.key')){
+    $output = new stdClass();
+    $output->{'Error'} = true;
+    $output->{'Error_Description'} = 'Database API key is not present.';
+    echo json_encode($output);
+    die();
   }
 
-  $output = new stdClass();
-  $output->{'Error'} = true;
-  $output->{'ErrorDescription'} = 'Database API key is not present.';
-  echo json_encode($output);
-  die();
+  return trim(file_get_contents('../APIKeys/Database.key'));
 }
 
 // _____________________________________________________________________________
@@ -64,15 +64,15 @@ function getAndValidateDatabaseAPIKey(){
  *  @retval string Employee ID. */
 
 function getAndValidateParam_EmployeeID(){
-  if(isset($_GET['employee_id'])){
-    return $_GET['employee_id'];
+  if(!isset($_GET['employee_id'])){
+    $output = new stdClass();
+    $output->{'Error'} = true;
+    $output->{'Error_Description'} = 'Employee ID was not specified.';
+    echo json_encode($output);
+    die();
   }
 
-  $output = new stdClass();
-  $output->{'Error'} = true;
-  $output->{'ErrorDescription'} = 'Employee ID was not specified.';
-  echo json_encode($output);
-  die();
+  return $_GET['employee_id'];
 }
 
 // _____________________________________________________________________________
@@ -112,7 +112,7 @@ function queryDatabase_userInsurancePlans($db,$employeeID){
  *
  *  @param array $dbResults Array of database rows containing insurance plans. */
 
-function outputUserInsurancePlans($dbResults){
+function output_userInsurancePlans($dbResults){
   $plans = array();
   foreach($dbResults as $result){
     $obj = new stdClass();
@@ -136,7 +136,7 @@ function main(){
   $employeeID = getAndValidateParam_EmployeeID();
   $db         = getDatabaseConnection($dbKey);
   $dbResults  = queryDatabase_userInsurancePlans($db,$employeeID);
-  outputUserInsurancePlans($dbResults);
+  output_userInsurancePlans($dbResults);
 }
 main();
 
