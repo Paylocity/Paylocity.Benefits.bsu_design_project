@@ -76,8 +76,8 @@ const Coverage = ({eligible}) => {
                 <div className="Section">Benefits Coverage</div>
                 <hr/>
                 <div 
-                    className="Partition Service"
-                    onClick={viewEligibleMedical}>
+                  className="Partition Service"
+                  onClick={viewEligibleMedical}>
                     <div>Medical</div>
                     <div className="Plan">Employee + Family (6)</div>
                     <div className="Provider">Blue Cross Blue Shield IL</div>
