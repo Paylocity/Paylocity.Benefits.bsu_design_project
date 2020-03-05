@@ -131,6 +131,16 @@ button[type=submit] {
   font-weight: 400;
 }
 
+.Account-details-primary {
+  font-weight: 600;
+}
+
+.Account-details-secondary {
+  float: right;
+  color: #666666;
+  font-weight: 400;
+}
+
 .Deductible.Section {
   margin: 5px;
 }
