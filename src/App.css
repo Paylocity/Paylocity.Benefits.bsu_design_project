@@ -1,3 +1,9 @@
+a {
+  color: #1588AF;
+  font-weight: 400;
+  font-size: calc(8px + 2vmin);
+}
+
 hr {
   border: 0.5px solid #CCCCCC;
   margin: 0;
@@ -96,11 +102,59 @@ button[type=submit] {
   border-radius: 7px;
 }
 
+.Subtext {
+  color: #666666;
+  font-weight: 400;
+  font-size: calc(10px + 2vmin);
+}
+
 .Section {
   padding: 0.5vh 2vw;
   font-size: calc(8px + 2vmin);
   font-weight: bold;
   color: #666666;
+}
+
+.Section.Information {
+  padding: 10px 15px;
+  color: #222222;
+  font-size: calc(10px + 2vmin);
+}
+
+.Deductible.Section {
+  margin: 5px;
+}
+
+.Deductible.Balance-amount {
+  color: unset;
+  font-size: unset;
+  float: right;
+}
+
+.Deductible.Subtext {
+  color: #222222;
+  font-size: calc(5px + 2vmin);
+  font-weight: 500;
+  width: 100%;
+  overflow: hidden;
+}
+
+.Deductible.Subtext.Amount {
+  font-weight: 800;
+}
+
+.Percent-bar {
+  background-color: #249661;
+  width: 100%;
+  height: 8px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.Section.Wide {
+  font-size: calc(10px + 2vmin);
+  font-weight: 500;
+  margin: 5px;
 }
 
 .Partition {
@@ -151,7 +205,31 @@ button[type=submit] {
   color: #11779C;
 }
 
-#Menu {
+.Selection-button {
+  background-color: transparent;
+  color: #1588AF;
+  font-weight: 100;
+  font-size: calc(6px + 2vmin);
+  border: 1px solid #1588AF;
+  border-radius: 2px;
+  padding: 7px;
+  width: 45vw;
+}
+
+.Selection-button.Selected {
+  background-color: #1588AF;
+  color: #FFFFFF;
+}
+
+.Img-upload {
+  background-color: #FFFFFF;
+  color: #1588AF;
+  text-align: center;
+  font-size: calc(6px + 2vmin);
+  padding: 15px 0;
+}
+
+#Menu, .Back-button {
   color: #11779C;
   position: absolute;
   left: 10px;
@@ -161,4 +239,9 @@ button[type=submit] {
   color: #41A8D2;
   font-weight: normal;
   float: right;
+}
+
+#Plan-switch {
+  margin: 15px;
+  text-align: center;
 }
