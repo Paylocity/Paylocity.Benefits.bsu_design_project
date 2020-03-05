@@ -7,7 +7,7 @@ import './App.css';
 
 const view = {
     ACTIVITY: 0,
-    ACCOUNT_DETAILS: 2
+    ACCOUNT_DETAILS: 1
 };
 
 const PlanDetails = ({plan}) => {
