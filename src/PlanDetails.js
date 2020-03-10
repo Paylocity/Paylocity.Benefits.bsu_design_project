@@ -40,7 +40,7 @@ const PlanDetails = ({plan}) => {
             </div>
             <hr/>
             {(function () {
-                if(currentView == view.ACTIVITY) return (
+                if(currentView === view.ACTIVITY) return (
                     <div>
                         <div id="Plan-switch">
                             <button className="Selection-button Selected">Activity</button>
@@ -52,7 +52,7 @@ const PlanDetails = ({plan}) => {
                         <PlanDetailsActivity/>
                     </div>
                 );
-                else if(currentView == view.ACCOUNT_DETAILS) return (
+                else if(currentView === view.ACCOUNT_DETAILS) return (
                     <div>
                         <div id="Plan-switch">
                             <button

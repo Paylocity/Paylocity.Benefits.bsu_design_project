@@ -1,27 +1,54 @@
 import React from 'react';
+import PctyAccumulator from './pcty-accumulator/pcty-accumulator';
 import './App.css';
 
-const PlanDetailsActivity = () => {
+const PlanDetailsActivity = ({
+    deductible = '2000.00',
+    amtToDeductible = '359.53',
+    outOfPocket = '6000.00',
+    amtToOOP = '4359.53'
+}) => {
+    const formatMoney = function (amount) {
+        amount = amount.split('.');
+        
+        let formattedString = (amount.length === 2) ?
+        '.' + amount[1] : '.00';
+
+        let separatorCount = 0;
+        for(let i = amount[0].length-1; i >= 0; --i) {
+            if(separatorCount === 3) {
+                formattedString = ',' + formattedString;
+                separatorCount = 0;
+            }
+            formattedString = amount[0][i] + formattedString;
+            ++separatorCount;
+        }
+
+        formattedString = '$' + formattedString;
+
+        return formattedString;
+    }
+
     return (
         <div>
             <div className="Deductible Section">
                 <span>Deductible</span>
-                <span className="Deductible Balance-amount">$2,000.00</span>
-                <div className="Percent-bar"></div>
+                <span className="Deductible Balance-amount">{formatMoney(deductible)}</span>
+                <PctyAccumulator/>
                 <div className="Deductible Subtext">
                     <span>You are </span>
-                    <span className="Deductible Subtext Amount">$359.53</span>
+                    <span className="Deductible Subtext Amount">{formatMoney(amtToDeductible)}</span>
                     <span> away from your deductible</span>
                 </div>
             </div>
             <hr/>
             <div className="Deductible Section">
                 <span>Out of Pocket</span> 
-                <span className="Deductible Balance-amount">$6,000.00</span>
-                <div className="Percent-bar"></div>
+                <span className="Deductible Balance-amount">{formatMoney(outOfPocket)}</span>
+                <PctyAccumulator/>
                 <div className="Deductible Subtext">
                     <span>You are </span>
-                    <span className="Deductible Subtext Amount">$4,359.53</span>
+                    <span className="Deductible Subtext Amount">{formatMoney(amtToOOP)}</span>
                     <span> away from your out of pocket max</span>
                 </div>
             </div>

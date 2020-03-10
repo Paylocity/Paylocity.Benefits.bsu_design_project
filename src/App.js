@@ -34,7 +34,7 @@ const App = () => {
         <span>Benefits</span>
       </header>
       {(function () {
-        if(currentPage == pages.COVERAGE) return (
+        if(currentPage === pages.COVERAGE) return (
           <div>
             <Coverage eligible={eligible}/>
             <footer>
@@ -43,7 +43,7 @@ const App = () => {
             </footer>
           </div>
         );
-        else if(currentPage == pages.EXTRAS) return (
+        else if(currentPage === pages.EXTRAS) return (
           <div>
             <Extras/>
             <footer>

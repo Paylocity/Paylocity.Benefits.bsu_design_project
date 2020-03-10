@@ -163,14 +163,6 @@ button[type=submit] {
   font-weight: 800;
 }
 
-.Percent-bar {
-  background-color: #249661;
-  width: 100%;
-  height: 8px;
-  margin: 10px 0;
-  border-radius: 5px;
-}
-
 .Section.Wide {
   font-size: calc(10px + 2vmin);
   font-weight: 500;
