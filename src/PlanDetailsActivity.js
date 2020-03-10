@@ -34,7 +34,7 @@ const PlanDetailsActivity = ({
             <div className="Deductible Section">
                 <span>Deductible</span>
                 <span className="Deductible Balance-amount">{formatMoney(deductible)}</span>
-                <PctyAccumulator/>
+                <PctyAccumulator id="Deductible-accumulator" percentage={(1-amtToDeductible/deductible)*100}/>
                 <div className="Deductible Subtext">
                     <span>You are </span>
                     <span className="Deductible Subtext Amount">{formatMoney(amtToDeductible)}</span>
@@ -45,7 +45,7 @@ const PlanDetailsActivity = ({
             <div className="Deductible Section">
                 <span>Out of Pocket</span> 
                 <span className="Deductible Balance-amount">{formatMoney(outOfPocket)}</span>
-                <PctyAccumulator/>
+                <PctyAccumulator id="OOP-accumulator" percentage={(1-amtToOOP/outOfPocket)*100}/>
                 <div className="Deductible Subtext">
                     <span>You are </span>
                     <span className="Deductible Subtext Amount">{formatMoney(amtToOOP)}</span>

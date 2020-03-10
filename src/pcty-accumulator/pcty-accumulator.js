@@ -1,10 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './pcty-accumulator.css';
 
-const PctyAccumulator = () => {
-    //#249661;
+const PctyAccumulator = ({id, percentage}) => {
+    const calculateFill = function (width) {
+        return width*(percentage/100);
+    }
+
+    const renderAccumulator = function () {
+        const accumulator = document.getElementById(id);
+        const ctx = accumulator.getContext('2d');
+        const height = accumulator.height;
+
+        ctx.fillStyle = '#249661';
+        ctx.fillRect(0, 0, calculateFill(accumulator.width), height);
+    }
+
+    useEffect(() => {
+        renderAccumulator();
+    }, []);
+
     return (
-        <canvas className="Pcty-accumulator"/>
+        <canvas id={id} className="Pcty-accumulator"/>
     );
 }
 
