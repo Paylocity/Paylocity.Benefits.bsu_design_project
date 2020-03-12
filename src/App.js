@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Coverage from './Coverage';
 import Extras from './Extras';
 import './App.css';
@@ -9,23 +9,7 @@ const pages = {
 }
 
 const App = () => {
-  const [eligible, setEligible] = useState([]);
   const [currentPage, setCurrentPage] = useState(pages.COVERAGE);
-
-  const getEligible = async () => {
-    // TODO: Add eligible data
-    // await fetch()
-    //   .then((response) => {
-    //     return response.json();
-    //   })
-    //   .then((data) => {
-    //     setEligible(data);
-    //   });
-  }
-
-  useEffect(() => {
-    getEligible();
-  }, []);
 
   return (
     <div className="App">
@@ -36,7 +20,7 @@ const App = () => {
       {(function () {
         if(currentPage === pages.COVERAGE) return (
           <div>
-            <Coverage eligible={eligible}/>
+            <Coverage/>
             <footer>
               <span className="Current-selection">Coverage</span>
               <span onClick={() => setCurrentPage(pages.EXTRAS)}>Extras</span>

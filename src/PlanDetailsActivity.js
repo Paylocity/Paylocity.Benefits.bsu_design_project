@@ -1,14 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PctyAccumulator from './pcty-accumulator/pcty-accumulator';
 import './App.css';
 
 const PlanDetailsActivity = ({
-    deductible = '2000.00',
-    amtToDeductible = '359.53',
     outOfPocket = '6000.00',
     amtToOOP = '4359.53'
 }) => {
-    const formatMoney = function (amount) {
+    var deductibleData = {};
+
+    const formatUSD = (amount) => {
         amount = amount.split('.');
         
         let formattedString = (amount.length === 2) ?
@@ -29,26 +29,52 @@ const PlanDetailsActivity = ({
         return formattedString;
     }
 
+    const getDeductible = async () => {
+        const response = await fetch(
+            `http://pctybsu2020.herokuapp.com/GetInsurancePlanFinancials.php?uip_id=2`
+        );
+        deductibleData = await response.json();
+
+        console.log(deductibleData);
+
+        document.getElementById('Deductible-total')
+            .innerHTML = formatUSD(deductibleData.Deductible_Totals);
+        document.getElementById('Deductible-remaining')
+            .innerHTML = formatUSD(deductibleData.Deductible_Remainings);
+    }
+
+    useEffect(() => {
+        getDeductible();
+    }, []);
+
     return (
         <div>
             <div className="Deductible Section">
                 <span>Deductible</span>
-                <span className="Deductible Balance-amount">{formatMoney(deductible)}</span>
-                <PctyAccumulator id="Deductible-accumulator" percentage={(1-amtToDeductible/deductible)*100}/>
+                <span
+                  id="Deductible-total"
+                  className="Deductible Balance-amount"></span>
+                <PctyAccumulator
+                  id="Deductible-accumulator"
+                  percentage={(1-82.06/500)*100}/>
                 <div className="Deductible Subtext">
                     <span>You are </span>
-                    <span className="Deductible Subtext Amount">{formatMoney(amtToDeductible)}</span>
+                    <span
+                      id="Deductible-remaining"
+                      className="Deductible Subtext Amount"></span>
                     <span> away from your deductible</span>
                 </div>
             </div>
             <hr/>
             <div className="Deductible Section">
                 <span>Out of Pocket</span> 
-                <span className="Deductible Balance-amount">{formatMoney(outOfPocket)}</span>
-                <PctyAccumulator id="OOP-accumulator" percentage={(1-amtToOOP/outOfPocket)*100}/>
+                <span className="Deductible Balance-amount">{formatUSD(outOfPocket)}</span>
+                <PctyAccumulator
+                  id="OOP-accumulator"
+                  percentage={(1-amtToOOP/outOfPocket)*100}/>
                 <div className="Deductible Subtext">
                     <span>You are </span>
-                    <span className="Deductible Subtext Amount">{formatMoney(amtToOOP)}</span>
+                    <span className="Deductible Subtext Amount">{formatUSD(amtToOOP)}</span>
                     <span> away from your out of pocket max</span>
                 </div>
             </div>

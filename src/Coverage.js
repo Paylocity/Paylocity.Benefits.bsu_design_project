@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import PlanDetails from './PlanDetails';
 import card from './test-card.jpg';
 import './App.css';
 
-const Coverage = ({eligible}) => {
+const Coverage = () => {   
+    var eligible = {};
+    
     const plans = {
         MEDICAL: 0
     }
@@ -12,6 +14,18 @@ const Coverage = ({eligible}) => {
     const viewEligibleMedical = function () {
         ReactDOM.render(<PlanDetails plan={plans.MEDICAL}/>, document.getElementById('root'));
     }
+
+    const getEligible = async () => {
+        const response = await fetch(
+            `http://pctybsu2020.herokuapp.com/GetUserInsurancePlans.php?employee_id=123456`
+        );
+        eligible = await response.json();
+        console.log(eligible);
+    }
+
+    useEffect(() => {
+        getEligible();
+    }, []);
 
     return(
         <div className="View">

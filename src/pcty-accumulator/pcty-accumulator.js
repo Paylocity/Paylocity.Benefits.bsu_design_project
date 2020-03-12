@@ -9,10 +9,14 @@ const PctyAccumulator = ({id, percentage}) => {
     const renderAccumulator = function () {
         const accumulator = document.getElementById(id);
         const ctx = accumulator.getContext('2d');
-        const height = accumulator.height;
 
         ctx.fillStyle = '#249661';
-        ctx.fillRect(0, 0, calculateFill(accumulator.width), height);
+        ctx.fillRect(
+            0, 
+            0, 
+            calculateFill(accumulator.width), 
+            accumulator.height
+        );
     }
 
     useEffect(() => {
