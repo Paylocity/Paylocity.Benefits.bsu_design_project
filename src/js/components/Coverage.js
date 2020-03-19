@@ -1,30 +1,18 @@
 import React, {useEffect} from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { connect } from 'react-redux';
+import { getUserInsurancePlans } from '../actions/index';
+import { plans } from '../constants/action-types';
 import PlanDetails from './PlanDetails';
 import card from './test-card.jpg';
-import './App.css';
 
 const Coverage = () => {   
-    var eligible = {};
-    
-    const plans = {
-        MEDICAL: 0
-    }
-
     const viewEligibleMedical = function () {
-        ReactDOM.render(<PlanDetails plan={plans.MEDICAL}/>, document.getElementById('root'));
-    }
-
-    const getEligible = async () => {
-        const response = await fetch(
-            `http://pctybsu2020.herokuapp.com/GetUserInsurancePlans.php?employee_id=123456`
-        );
-        eligible = await response.json();
-        console.log(eligible);
+        render(<PlanDetails plan={plans.MEDICAL}/>, document.getElementById('root'));
     }
 
     useEffect(() => {
-        getEligible();
+        connect(null, getUserInsurancePlans);
     }, []);
 
     return(

@@ -1,6 +1,5 @@
 import React from 'react';
 import card from './test-card.jpg';
-import './App.css';
 
 const Extras = () => {
     return(

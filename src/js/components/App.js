@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Coverage from './Coverage';
 import Extras from './Extras';
-import './App.css';
 
 const pages = {
   COVERAGE: 0,

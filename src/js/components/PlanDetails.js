@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import App from './App';
 import PlanDetailsActivity from './PlanDetailsActivity';
 import PlanDetailsAccount from './PlanDetailsAccount';
-import './App.css';
 
 const view = {
     ACTIVITY: 0,
@@ -14,7 +13,7 @@ const PlanDetails = ({plan}) => {
     const [currentView, setCurrentView] = useState(view.ACTIVITY);
 
     const back = function () {
-        ReactDOM.render(<App />, document.getElementById('root'));
+        render(<App />, document.getElementById('root'));
     }
 
     return (

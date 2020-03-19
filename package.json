@@ -10,7 +10,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-hamburger-button": "0.0.1",
-    "react-redux": "^7.2.0",
     "react-scripts": "3.4.0"
   },
   "scripts": {
@@ -33,5 +32,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5"
   }
 }
