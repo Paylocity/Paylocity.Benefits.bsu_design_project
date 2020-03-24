@@ -1,11 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Coverage from './Coverage';
 import Extras from './Extras';
-
-const pages = {
-  COVERAGE: 0,
-  EXTRAS:   1
-}
+import { pages } from '../constants/enums';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState(pages.COVERAGE);

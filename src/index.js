@@ -6,11 +6,9 @@ import App from './js/components/App';
 import './index.css';
 import './App.css';
 
-const root = document.getElementById('root');
-
 render(
     <Provider store={store}>
         <App/>
-    </Provider>, 
-    root
+    </Provider>
+    , document.getElementById('root')
 );

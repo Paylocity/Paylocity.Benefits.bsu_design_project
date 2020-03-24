@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getDeductible } from '../actions/index';
 import PctyAccumulator from '../../pcty-accumulator/pcty-accumulator';
@@ -29,7 +29,6 @@ const PlanDetailsActivity = ({
     }
 
     useEffect(() => {
-        connect(null, getDeductible);
     }, []);
 
     return (

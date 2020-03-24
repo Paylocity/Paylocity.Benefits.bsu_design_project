@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import { render } from 'react-dom';
 import { connect } from 'react-redux';
 import { getUserInsurancePlans } from '../actions/index';
-import { plans } from '../constants/action-types';
+import { plans } from '../constants/enums';
 import PlanDetails from './PlanDetails';
 import card from './test-card.jpg';
 
@@ -12,7 +12,6 @@ const Coverage = () => {
     }
 
     useEffect(() => {
-        connect(null, getUserInsurancePlans);
     }, []);
 
     return(
@@ -123,4 +122,10 @@ const Coverage = () => {
     );
 }
 
-export default Coverage;
+const mapStateToProps = (state) => ({
+    
+})
+
+export default connect(
+    mapStateToProps
+)(Coverage);
