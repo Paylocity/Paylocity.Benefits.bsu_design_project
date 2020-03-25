@@ -124,8 +124,20 @@ const Coverage = () => {
 
 const mapStateToProps = (state) => ({
     
-})
+});
+
+const mapDispatchToProps = {
+
+};
+
+const connectToStore = connect(
+    mapStateToProps,
+    mapDispatchToProps
+);
+
+const connectedComponent = connectToStore(Coverage);
 
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Coverage);

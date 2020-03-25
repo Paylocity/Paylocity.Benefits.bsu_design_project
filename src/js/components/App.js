@@ -3,6 +3,10 @@ import Coverage from './Coverage';
 import Extras from './Extras';
 import { pages } from '../constants/enums';
 
+const mapStateToProps = state => {
+  return { articles: state.articles };
+};
+
 const App = () => {
   const [currentPage, setCurrentPage] = useState(pages.COVERAGE);
 
@@ -12,26 +16,20 @@ const App = () => {
         <span id="Menu">Menu</span>
         <span>Benefits</span>
       </header>
-      {(function () {
-        if(currentPage === pages.COVERAGE) return (
-          <div>
-            <Coverage/>
-            <footer>
-              <span className="Current-selection">Coverage</span>
-              <span onClick={() => setCurrentPage(pages.EXTRAS)}>Extras</span>
-            </footer>
-          </div>
-        );
-        else if(currentPage === pages.EXTRAS) return (
-          <div>
-            <Extras/>
-            <footer>
-              <span onClick={() => setCurrentPage(pages.COVERAGE)}>Coverage</span>
-              <span className="Current-selection">Extras</span>
-            </footer>
-          </div>
-        );
-      })()}
+      {currentPage===pages.COVERAGE ? <Coverage/> : null}
+      {currentPage===pages.EXTRAS ? <Extras/> : null}
+      <footer>
+        <span 
+          className={currentPage===pages.COVERAGE ? 'Current-selection' : ''}
+          onClick={() => setCurrentPage(pages.COVERAGE)}>
+          Coverage
+        </span>
+        <span 
+          className={currentPage===pages.EXTRAS ? 'Current-selection' : ''}
+          onClick={() => setCurrentPage(pages.EXTRAS)}>
+          Extras
+        </span>
+      </footer>
     </div>
   );
 }
