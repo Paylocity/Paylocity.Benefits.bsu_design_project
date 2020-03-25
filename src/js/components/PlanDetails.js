@@ -38,32 +38,23 @@ const PlanDetails = ({plan}) => {
                 </div>
             </div>
             <hr/>
-            {(function () {
-                if(currentView === view.ACTIVITY) return (
-                    <div>
-                        <div id="Plan-switch">
-                            <button className="Selection-button Selected">Activity</button>
-                            <button
-                            className="Selection-button"
-                            onClick={() => setCurrentView(view.ACCOUNT_DETAILS)}>Account Details</button>
-                        </div>
-                        <hr/>
-                        <PlanDetailsActivity/>
-                    </div>
-                );
-                else if(currentView === view.ACCOUNT_DETAILS) return (
-                    <div>
-                        <div id="Plan-switch">
-                            <button
-                            className="Selection-button"
-                            onClick={() => setCurrentView(view.ACTIVITY)}>Activity</button>
-                            <button className="Selection-button Selected">Account Details</button>
-                        </div>
-                        <hr/>
-                        <PlanDetailsAccount/>
-                    </div>
-                );
-            })()}
+            <div>
+                <div id="Plan-switch">
+                    <button 
+                      className={'Selection-button'.concat(currentView===view.ACTIVITY ? ' Selected' : '')}
+                      onClick={() => setCurrentView(view.ACTIVITY)}>
+                      Activity
+                    </button>
+                    <button
+                      className={'Selection-button'.concat(currentView===view.ACCOUNT_DETAILS ? ' Selected' : '')}
+                      onClick={() => setCurrentView(view.ACCOUNT_DETAILS)}>
+                      Account Details
+                    </button>
+                </div>
+                <hr/>
+                {currentView===view.ACTIVITY ? <PlanDetailsActivity/> : null}
+                {currentView===view.ACCOUNT_DETAILS ? <PlanDetailsAccount/> : null}
+            </div>
         </div>
     );
 }

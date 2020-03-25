@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import Coverage from './Coverage';
 import Extras from './Extras';
 import { pages } from '../constants/enums';
-
-const mapStateToProps = state => {
-  return { articles: state.articles };
-};
+import { connect } from 'react-redux';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState(pages.COVERAGE);
