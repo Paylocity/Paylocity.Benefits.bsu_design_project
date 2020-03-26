@@ -75,7 +75,7 @@ const Coverage = ({ insurancePlans }) => {
                 <div className="Section">Benefits Coverage</div>
                 <hr/>
                 {insurancePlans.map(el => (
-                    <div key={el.Description}>
+                    <div key={el.ID}>
                         <div className='Partition Service'>
                             <div>Something</div>
                             <div className='Plan'>Someone</div>

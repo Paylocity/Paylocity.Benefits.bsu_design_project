@@ -9,7 +9,7 @@ const view = {
     ACCOUNT_DETAILS: 1
 };
 
-const PlanDetails = ({plan}) => {
+const PlanDetails = ({ plan }) => {
     const [currentView, setCurrentView] = useState(view.ACTIVITY);
 
     const back = function () {
