@@ -9,7 +9,7 @@ import card from './test-card.jpg';
 const Coverage = ({ insurancePlans }) => {
 
     const viewEligibleMedical = function () {
-        render(<PlanDetails plan={plans.MEDICAL}/>, document.getElementById('root'));
+        render(<PlanDetails plan={plans.MEDICAL}/>, document.getElementById('App'));
     }
 
     return(
@@ -74,6 +74,16 @@ const Coverage = ({ insurancePlans }) => {
             <div>
                 <div className="Section">Benefits Coverage</div>
                 <hr/>
+                {insurancePlans.map(el => (
+                    <div>
+                        <div className='Partition Service'>
+                            <div>Something</div>
+                            <div className='Plan'>Someone</div>
+                            <div className='Provider'>{el.Description}</div>
+                        </div>
+                        <hr/>
+                    </div>
+                ))}
                 <div 
                   className="Partition Service"
                   onClick={viewEligibleMedical}>

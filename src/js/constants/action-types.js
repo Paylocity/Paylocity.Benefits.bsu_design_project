@@ -1,2 +1,3 @@
 export const ADD_INSURANCE_PLAN = 'ADD_INSURANCE_PLAN';
 export const ADD_DEDUCTIBLE = 'ADD_DEDUCTIBLE';
+export const CHANGE_VIEW = 'CHANGE_VIEW';

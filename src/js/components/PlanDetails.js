@@ -13,7 +13,7 @@ const PlanDetails = ({plan}) => {
     const [currentView, setCurrentView] = useState(view.ACTIVITY);
 
     const back = function () {
-        render(<App />, document.getElementById('root'));
+        render(<App/>, document.getElementById('App'));
     }
 
     return (

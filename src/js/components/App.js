@@ -7,7 +7,7 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(pages.COVERAGE);
 
   return (
-    <div className="App">
+    <div id="App">
       <header>
         <span id="Menu">Menu</span>
         <span>Benefits</span>
