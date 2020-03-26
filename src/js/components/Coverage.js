@@ -1,18 +1,16 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 import { connect } from 'react-redux';
-import { getUserInsurancePlans } from '../actions/index';
 import { plans } from '../constants/enums';
+import { getUserInsurancePlans } from '../actions/index';
 import PlanDetails from './PlanDetails';
 import card from './test-card.jpg';
 
-const Coverage = () => {   
+const Coverage = ({ insurancePlans }) => {
+
     const viewEligibleMedical = function () {
         render(<PlanDetails plan={plans.MEDICAL}/>, document.getElementById('root'));
     }
-
-    useEffect(() => {
-    }, []);
 
     return(
         <div className="View">
@@ -122,22 +120,11 @@ const Coverage = () => {
     );
 }
 
-const mapStateToProps = (state) => ({
-    
-});
-
-const mapDispatchToProps = {
-
+const mapStateToProps = state => {
+    return { insurancePlans: state.insurancePlans };
 };
-
-const connectToStore = connect(
-    mapStateToProps,
-    mapDispatchToProps
-);
-
-const connectedComponent = connectToStore(Coverage);
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    { getUserInsurancePlans }
 )(Coverage);

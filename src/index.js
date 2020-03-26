@@ -12,3 +12,5 @@ render(
     </Provider>
     , document.getElementById('root')
 );
+
+window.store = store;

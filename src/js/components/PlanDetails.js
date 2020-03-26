@@ -34,7 +34,7 @@ const PlanDetails = ({plan}) => {
                     <a>800-555-6767</a>
                 </div>
                 <div>
-                    <a>https://www.bcbsil.com</a>
+                    <a href="https://www.bcbsil.com">https://www.bcbsil.com</a>
                 </div>
             </div>
             <hr/>
