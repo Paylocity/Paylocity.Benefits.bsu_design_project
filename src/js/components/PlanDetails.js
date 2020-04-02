@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import { render } from 'react-dom';
 import App from './App';
 import PlanDetailsActivity from './PlanDetailsActivity';
@@ -9,22 +10,30 @@ const view = {
     ACCOUNT_DETAILS: 1
 };
 
-const PlanDetails = ({ plan }) => {
+const PlanDetails = () => {
     const [currentView, setCurrentView] = useState(view.ACTIVITY);
-
-    const back = function () {
-        render(<App/>, document.getElementById('App'));
-    }
 
     return (
         <div className="App">
             <header>
-                <span 
-                  className="Back-button"
-                  onClick={back}>Back</span>
+                <Link to='/coverage' className="Back-button">
+                    Back
+                </Link>
                 <span>Plan Details</span>
             </header>
             <div className="Img-upload">
+                <div className="Card-info">
+                    <div>Blue Cross Blue Shield</div>
+                    <div>
+                        <span>ID Number: </span>
+                        <span className="Card-number">ABC12345678</span>
+                    </div>
+                    <div>
+                        <span>Group Number: </span>
+                        <span className="Card-number">DE8976</span>
+                    </div>
+                </div>
+                <img></img>
                 <span>Upload photos of your medical insurance card</span>
             </div>
             <div className="Section Information">
