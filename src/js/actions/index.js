@@ -20,7 +20,7 @@ export function getDeductible() {
         return fetch(deductibles)
           .then(response => response.json())
           .then(json => {
-              dispatch({ type: ADD_DEDUCTIBLE, payload: json});
+              dispatch({ type: ADD_DEDUCTIBLE, payload: json });
           });
     }
 }

@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
-import { render } from 'react-dom';
-import App from './App';
+import {
+    useParams,
+    Link
+} from 'react-router-dom';
 import PlanDetailsActivity from './PlanDetailsActivity';
 import PlanDetailsAccount from './PlanDetailsAccount';
+import cameraImg from '../img/InsuranceCardPlaceholder_Camera.svg';
+import './InsuranceCardPlaceholder.css';
 
 const view = {
     ACTIVITY: 0,
@@ -12,7 +15,8 @@ const view = {
 
 const PlanDetails = () => {
     const [currentView, setCurrentView] = useState(view.ACTIVITY);
-
+    let { id } = useParams();
+    
     return (
         <div className="App">
             <header>
@@ -21,20 +25,28 @@ const PlanDetails = () => {
                 </Link>
                 <span>Plan Details</span>
             </header>
-            <div className="Img-upload">
-                <div className="Card-info">
-                    <div>Blue Cross Blue Shield</div>
-                    <div>
-                        <span>ID Number: </span>
-                        <span className="Card-number">ABC12345678</span>
+            <div id="InsuranceCardPlaceholder" onclick="alert('insert upload prompt here');">
+                <div id="InnerFrame">
+                    <div id="Top">
+                        <p>
+                            <span class="HeavyText">Blue Cross Blue Shield</span>
+                        </p>
+                        <p>
+                            <span class="HeavyText">ID Number: </span>
+                            <span class="StandardText">ABC12345678</span>
+                        </p>
+                        <p>
+                            <span class="HeavyText">Group Number: </span>
+                            <span class="StandardText">DE9876</span>
+                        </p>
                     </div>
-                    <div>
-                        <span>Group Number: </span>
-                        <span className="Card-number">DE8976</span>
+                    <div id="Bottom">
+                        <img id="CameraImage" src={cameraImg}/>
+                        <p>
+                            <span id="UploadText">Upload photos of your medical insurance card</span>
+                        </p>
                     </div>
                 </div>
-                <img></img>
-                <span>Upload photos of your medical insurance card</span>
             </div>
             <div className="Section Information">
                 <div>Blue Cross Blue Shield PPO</div>
