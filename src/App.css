@@ -117,7 +117,8 @@ button[type=submit] {
   padding: 0.5vh 2vw;
   font-size: calc(8px + 2vmin);
   font-weight: bold;
-  color: #666666;
+  background-color: #F5F5F5;
+  color: #393939;
 }
 
 .Section.Information {
