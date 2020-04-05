@@ -37,7 +37,7 @@ const PlanDetailsActivity = ({
                 <span>Deductible</span>
                 <span
                   id="Deductible-total"
-                  className="Deductible Balance-amount"></span>
+                  className="Deductible Balance-amount">$500.00</span>
                 <PctyAccumulator
                   id="Deductible-accumulator"
                   percentage={(1-82.06/500)*100}/>
@@ -45,7 +45,7 @@ const PlanDetailsActivity = ({
                     <span>You are </span>
                     <span
                       id="Deductible-remaining"
-                      className="Deductible Subtext Amount"></span>
+                      className="Deductible Subtext Amount">$82.06</span>
                     <span> away from your deductible</span>
                 </div>
             </div>
