@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './pcty-accumulator.css';
 
-const PctyAccumulator = ({id, percentage}) => {
+const PctyAccumulator = ({ id, percentage }) => {
     const calculateFill = function (width) {
         return width*(percentage/100);
     }

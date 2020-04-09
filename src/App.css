@@ -2,6 +2,7 @@ a {
   color: #1588AF;
   font-weight: 400;
   font-size: calc(8px + 2vmin);
+  text-decoration: none;
 }
 
 hr {
@@ -29,10 +30,14 @@ footer {
   bottom: 0;
   z-index: 999;
   text-align: center;
-  font-size: calc(6px + 2vmin);
   font-weight: 500;
-  color:  #222222;
   padding: 3vh;
+}
+
+footer a {
+  padding: 3vh;
+  font-size: calc(6px + 2vmin);
+  color:  #222222;
 }
 
 footer span {
@@ -100,6 +105,7 @@ button[type=submit] {
   width: 42vw;
   max-width: 250px;
   border-radius: 7px;
+  text-align: left;
 }
 
 .Subtext {
@@ -112,7 +118,8 @@ button[type=submit] {
   padding: 0.5vh 2vw;
   font-size: calc(8px + 2vmin);
   font-weight: bold;
-  color: #666666;
+  background-color: #F5F5F5;
+  color: #393939;
 }
 
 .Section.Information {
@@ -241,10 +248,24 @@ button[type=submit] {
   padding: 15px 0;
 }
 
+.Card-info {
+  text-align: left;
+  margin: 0 25px 25px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.Card-number {
+  font-weight: normal;
+}
+
 #Menu, .Back-button {
   color: #11779C;
   position: absolute;
   left: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: calc(10px + 2vmin);
 }
 
 #Coverage-date {

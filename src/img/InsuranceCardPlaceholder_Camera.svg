@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   id="svg3386"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="camera_blue.svg">
+  <metadata
+     id="metadata3396">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>regular/camera</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3394" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1023"
+     id="namedview3392"
+     showgrid="false"
+     inkscape:zoom="6.578125"
+     inkscape:cx="41.729216"
+     inkscape:cy="64"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3386" />
+  <title
+     id="title3388">regular/camera</title>
+  <path
+     d="M114.5 25.464c3.833.166 7 1.538 9.5 4.115 2.5 2.576 3.833 5.694 4 9.351v58.354c-.167 3.824-1.5 7.024-4 9.601-2.5 2.577-5.667 3.949-9.5 4.115h-101c-3.833-.166-7-1.538-9.5-4.115s-3.833-5.777-4-9.6V38.93c.167-3.657 1.5-6.775 4-9.351 2.5-2.577 5.667-3.949 9.5-4.115H32l10-10.225C44.833 12.413 48.167 11 52 11h24.25c3.167 0 5.917.914 8.25 2.743l12 11.72h18zm0 8H93.137l-2.353-2.403L79.565 20.04c-.899-.705-1.907-1.04-3.315-1.04H52c-1.689 0-2.999.555-4.28 1.833l-10 10.225-2.354 2.406H13.5l.347-.008c-1.828.08-3.055.611-4.105 1.693-1.132 1.167-1.672 2.43-1.75 4.145L8 38.93v58.354l-.008-.348c.083 1.9.64 3.234 1.75 4.379 1.05 1.082 2.277 1.613 4.105 1.693L13.5 103h101l-.347.008c1.828-.08 3.055-.611 4.105-1.693 1.11-1.145 1.667-2.48 1.75-4.38l-.008.35V38.93l.008.364c-.078-1.716-.618-2.978-1.75-4.145-1.05-1.082-2.277-1.613-4.105-1.693l.347.008zm-50 2.786c-8.475.169-15.55 3.08-21.229 8.734-5.678 5.654-8.602 12.785-8.771 21.393.17 8.607 3.093 15.696 8.771 21.265 5.678 5.57 12.754 8.44 21.229 8.608 8.475-.169 15.55-3.08 21.229-8.734 5.678-5.654 8.602-12.7 8.771-21.14-.17-8.438-3.093-15.527-8.771-21.265-5.678-5.739-12.754-8.692-21.229-8.861zm0 52c-6.31-.169-11.554-2.318-15.733-6.448-4.178-4.13-6.267-9.314-6.267-15.552 0-6.238 2.09-11.464 6.267-15.678 4.179-4.215 9.423-6.322 15.733-6.322 6.31 0 11.554 2.065 15.733 6.195 4.178 4.13 6.267 9.399 6.267 15.805 0 6.406-2.09 11.632-6.267 15.678-4.179 4.046-9.423 6.153-15.733 6.322z"
+     fill="#222"
+     fill-rule="evenodd"
+     id="path3390"
+     style="fill:#0c85c4;fill-opacity:0.94117647" />
+</svg>
