@@ -105,6 +105,7 @@ button[type=submit] {
   width: 42vw;
   max-width: 250px;
   border-radius: 7px;
+  text-align: left;
 }
 
 .Subtext {

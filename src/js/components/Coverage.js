@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     Switch,
     Route,
@@ -13,6 +13,11 @@ import card from './test-card.jpg';
 
 const Coverage = ({ insurancePlans }) => {
     let match = useRouteMatch();
+
+    useEffect(() => {
+            getUserInsurancePlans();
+        },[]
+    );
 
     return(
         <Switch>
@@ -35,7 +40,9 @@ const Coverage = ({ insurancePlans }) => {
                     <div className='Card-cache'>
                     {insurancePlans.map(el => (
                         <div key={el.ID} className='Card'>
-                            <PctyInsuranceCard provider={el.Description}/>
+                            <div className='Card-img'>
+                                <PctyInsuranceCard provider={el.Description}/>
+                            </div>
                             <div>Insurance Type</div>
                         </div>
                     ))}

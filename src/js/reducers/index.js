@@ -1,21 +1,24 @@
-import { ADD_INSURANCE_PLAN, ADD_DEDUCTIBLE } from '../constants/action-types';
+import {
+    ADD_INSURANCE_PLAN,
+    ADD_DEDUCTIBLE
+} from '../constants/action-types';
 
 const initialState = {
-    insurancePlans: [],//[{"ID":"2","Description":"United Health Care COMPASS (individual in-network)"},{"ID":"12","Description":"Oxford Health (individual in-network)"},{"ID":"22","Description":"Harvard Pilgrim (individual in-network)"}],
+    insurancePlans: [],
     deductibles: []
 };
 
 function rootReducer(state = initialState, action) {
     switch(action.type) {
         case ADD_INSURANCE_PLAN: {
-            return Object.assign({}, state, {
-                insurancePlans: state.insurancePlans.concat(action.payload)
-            });
+            return { ...state,
+                insurancePlans: action.payload['UserInsurancePlans']
+            };
         }
         case ADD_DEDUCTIBLE: {
-            return Object.assign({}, state, {
-                deductibles: state.deductibles.concat(action.payload)
-            });
+            return { ...state,
+                deductibles: action.payload
+            };
         }
         default: {
             return state;

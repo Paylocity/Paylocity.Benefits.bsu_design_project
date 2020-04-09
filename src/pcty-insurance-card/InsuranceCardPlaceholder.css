@@ -6,6 +6,7 @@
   font-size        : calc(8px + 2vmin);
   background-color : white;
   color            : #0C85C4;
+  border-radius    : 5%;
 }
 
 #InsuranceCardPlaceholder {
@@ -45,7 +46,7 @@
 #InsuranceCardPlaceholder #Top {
   top              : 10%;
   z-index          : 2;
-  margin-bottom: 30px;
+  margin-bottom    : 30px;
 }
 
 #InsuranceCardPlaceholder #Bottom {
