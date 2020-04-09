@@ -1,9 +1,5 @@
 import { userInsurancePlans, deductibles } from "../constants/api";
-import { ADD_INSURANCE_PLAN, ADD_DEDUCTIBLE, CHANGE_VIEW } from '../constants/action-types';
-
-export function changeView(payload) {
-    return { type: CHANGE_VIEW, payload };
-}
+import { ADD_INSURANCE_PLAN, ADD_DEDUCTIBLE } from '../constants/action-types';
 
 export function getUserInsurancePlans() {
     return function(dispatch) {

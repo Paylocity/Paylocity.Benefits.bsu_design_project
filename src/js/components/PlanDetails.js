@@ -25,19 +25,19 @@ const PlanDetails = () => {
                 </Link>
                 <span>Plan Details</span>
             </header>
-            <div id="InsuranceCardPlaceholder" onclick="alert('insert upload prompt here');">
+            <div id="InsuranceCardPlaceholder" onClick={() => "alert('insert upload prompt here');"}>
                 <div id="InnerFrame">
                     <div id="Top">
                         <p>
-                            <span class="HeavyText">Blue Cross Blue Shield</span>
+                            <span className="HeavyText">Blue Cross Blue Shield</span>
                         </p>
                         <p>
-                            <span class="HeavyText">ID Number: </span>
-                            <span class="StandardText">ABC12345678</span>
+                            <span className="HeavyText">ID Number: </span>
+                            <span className="StandardText">ABC12345678</span>
                         </p>
                         <p>
-                            <span class="HeavyText">Group Number: </span>
-                            <span class="StandardText">DE9876</span>
+                            <span className="HeavyText">Group Number: </span>
+                            <span className="StandardText">DE9876</span>
                         </p>
                     </div>
                     <div id="Bottom">
