@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     useParams,
     Link
 } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getDeductible } from '../actions/index';
 import PlanDetailsActivity from './PlanDetailsActivity';
 import PlanDetailsAccount from './PlanDetailsAccount';
 import PctyInsuranceCard from '../../pcty-insurance-card/pcty-insurance-card';
@@ -12,9 +14,15 @@ const view = {
     ACCOUNT_DETAILS: 1
 };
 
-const PlanDetails = () => {
+const PlanDetails = ({ insurancePlans, deductible }) => {
     const [currentView, setCurrentView] = useState(view.ACTIVITY);
     let { id } = useParams();
+    let insurancePlan = insurancePlans.find(el => el['ID'] == id);
+
+    useEffect(() => {
+            getDeductible(id);
+        },[]
+    );
     
     return (
         <div className="App">
@@ -24,9 +32,9 @@ const PlanDetails = () => {
                 </Link>
                 <span>Plan Details</span>
             </header>
-            <PctyInsuranceCard/>
+            <PctyInsuranceCard provider={insurancePlan ? insurancePlan['Description'] : ''}/>
             <div className="Section Information">
-                <div>Blue Cross Blue Shield PPO</div>
+                <div>{insurancePlan ? insurancePlan['Description'] : ''}</div>
                 <div className="Subtext">By Blue Cross Blue Shield</div>
                 <div>
                     <a>800-555-6767</a>
@@ -50,11 +58,20 @@ const PlanDetails = () => {
                     </button>
                 </div>
                 <hr/>
-                {currentView===view.ACTIVITY ? <PlanDetailsActivity/> : null}
+                {currentView===view.ACTIVITY ? <PlanDetailsActivity deductible={deductible}/> : null}
                 {currentView===view.ACCOUNT_DETAILS ? <PlanDetailsAccount/> : null}
             </div>
         </div>
     );
 }
 
-export default PlanDetails;
+const mapStateToProps = state => {
+    return {
+        insurancePlans: state.insurancePlans,
+        deductible: state.deductibles
+    };
+};
+
+export default connect(
+    mapStateToProps
+)(PlanDetails);

@@ -3,7 +3,7 @@
   padding          : 0;
   box-sizing       : border-box;
   overflow         : hidden;
-  font-size        : calc(8px + 2vmin);
+  font-size        : 3vw;
   background-color : white;
   color            : #0C85C4;
   border-radius    : 5%;
@@ -26,7 +26,6 @@
 #InsuranceCardPlaceholder .HeavyText {
   font-weight      : bold;
 }
-
 
 #InsuranceCardPlaceholder #CameraImage {
   display          : block;

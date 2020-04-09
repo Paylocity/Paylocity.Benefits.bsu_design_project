@@ -4,10 +4,13 @@ import { getDeductible } from '../actions/index';
 import PctyAccumulator from '../../pcty-accumulator/pcty-accumulator';
 
 const PlanDetailsActivity = ({
+    deductible,
     outOfPocket = '6000.00',
     amtToOOP = '4359.53'
 }) => {
     const formatUSD = (amount) => {
+        if(!amount) return;
+
         amount = amount.split('.');
         
         let formattedString = (amount.length === 2) ?
@@ -37,15 +40,15 @@ const PlanDetailsActivity = ({
                 <span>Deductible</span>
                 <span
                   id="Deductible-total"
-                  className="Deductible Balance-amount">$500.00</span>
+                  className="Deductible Balance-amount">{formatUSD(deductible['Deductible_Totals'])}</span>
                 <PctyAccumulator
                   id="Deductible-accumulator"
-                  percentage={(1-82.06/500)*100}/>
+                  percentage={(deductible['Deductible_Spent']/deductible['Deductible_Totals'])*100}/>
                 <div className="Deductible Subtext">
                     <span>You are </span>
                     <span
                       id="Deductible-remaining"
-                      className="Deductible Subtext Amount">$82.06</span>
+                      className="Deductible Subtext Amount">{formatUSD(deductible['Deductible_Remainings'])}</span>
                     <span> away from your deductible</span>
                 </div>
             </div>

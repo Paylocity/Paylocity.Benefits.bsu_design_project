@@ -21,7 +21,7 @@ const PctyAccumulator = ({ id, percentage }) => {
 
     useEffect(() => {
         renderAccumulator();
-    }, []);
+    });
 
     return (
         <canvas id={id} className="Pcty-accumulator"/>

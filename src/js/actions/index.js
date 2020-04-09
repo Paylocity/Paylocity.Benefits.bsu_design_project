@@ -18,9 +18,9 @@ export function getUserInsurancePlans() {
     });
 }
 
-export function getDeductible() {
+export function getDeductible(id) {
     store.dispatch((dispatch) => {
-        fetch(deductibles)
+        fetch(deductibles+id)
           .then(response => response.json())
           .then(json => {
             dispatch({ type: ADD_DEDUCTIBLE, payload: json });
