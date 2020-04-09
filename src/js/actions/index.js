@@ -6,8 +6,8 @@ export function getUserInsurancePlans() {
         return fetch(userInsurancePlans)
           .then(response => response.json())
           .then(json => {
-              dispatch({ type: ADD_INSURANCE_PLAN, payload: json });
-          });
+            dispatch({ type: ADD_INSURANCE_PLAN, payload: json });
+        });
     }
 }
 
@@ -16,7 +16,7 @@ export function getDeductible() {
         return fetch(deductibles)
           .then(response => response.json())
           .then(json => {
-              dispatch({ type: ADD_DEDUCTIBLE, payload: json });
-          });
+            dispatch({ type: ADD_DEDUCTIBLE, payload: json });
+        });
     }
 }

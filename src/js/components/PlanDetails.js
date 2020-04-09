@@ -5,8 +5,7 @@ import {
 } from 'react-router-dom';
 import PlanDetailsActivity from './PlanDetailsActivity';
 import PlanDetailsAccount from './PlanDetailsAccount';
-import cameraImg from '../img/InsuranceCardPlaceholder_Camera.svg';
-import './InsuranceCardPlaceholder.css';
+import PctyInsuranceCard from '../../pcty-insurance-card/pcty-insurance-card';
 
 const view = {
     ACTIVITY: 0,
@@ -25,29 +24,7 @@ const PlanDetails = () => {
                 </Link>
                 <span>Plan Details</span>
             </header>
-            <div id="InsuranceCardPlaceholder" onClick={() => "alert('insert upload prompt here');"}>
-                <div id="InnerFrame">
-                    <div id="Top">
-                        <p>
-                            <span className="HeavyText">Blue Cross Blue Shield</span>
-                        </p>
-                        <p>
-                            <span className="HeavyText">ID Number: </span>
-                            <span className="StandardText">ABC12345678</span>
-                        </p>
-                        <p>
-                            <span className="HeavyText">Group Number: </span>
-                            <span className="StandardText">DE9876</span>
-                        </p>
-                    </div>
-                    <div id="Bottom">
-                        <img id="CameraImage" src={cameraImg}/>
-                        <p>
-                            <span id="UploadText">Upload photos of your medical insurance card</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <PctyInsuranceCard/>
             <div className="Section Information">
                 <div>Blue Cross Blue Shield PPO</div>
                 <div className="Subtext">By Blue Cross Blue Shield</div>

@@ -8,6 +8,7 @@ import {
 import { connect } from 'react-redux';
 import { getUserInsurancePlans } from '../actions/index';
 import PlanDetails from './PlanDetails';
+import PctyInsuranceCard from '../../pcty-insurance-card/pcty-insurance-card';
 import card from './test-card.jpg';
 
 const Coverage = ({ insurancePlans }) => {
@@ -31,6 +32,14 @@ const Coverage = ({ insurancePlans }) => {
                         <span id="Coverage-date">July 29, 2019</span>
                     </div>
                     <hr/>
+                    <div className='Card-cache'>
+                    {insurancePlans.map(el => (
+                        <div key={el.ID} className='Card'>
+                            <PctyInsuranceCard provider={el.Description}/>
+                            <div>Insurance Type</div>
+                        </div>
+                    ))}
+                    </div>
                     <div className="Card-cache">
                         <div className="Card">
                             <img src={card} className="Card-img"/>
@@ -86,8 +95,8 @@ const Coverage = ({ insurancePlans }) => {
                             <div key={el.ID}>
                                 <Link to={`${match.url}/${el.ID}`}
                                   className='Partition Service'>
-                                    <div>Something</div>
-                                    <div className='Plan'>Someone</div>
+                                    <div>Insurance Type</div>
+                                    <div className='Plan'>Coverage</div>
                                     <div className='Provider'>{el.Description}</div>
                                 </Link>
                                 <hr/>
