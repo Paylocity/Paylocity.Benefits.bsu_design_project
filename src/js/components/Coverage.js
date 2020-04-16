@@ -154,11 +154,11 @@ const Coverage = ({ insurancePlans }) => {
 }
 
 const mapStateToProps = state => {
-    return { insurancePlans: state.insurancePlans };
+    return {
+      insurancePlans: state.insurancePlans
+    };
 };
 
 export default connect(
-    mapStateToProps,
-    { getUserInsurancePlans }
+    mapStateToProps
 )(Coverage);
-

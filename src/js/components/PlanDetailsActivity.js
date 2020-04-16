@@ -4,10 +4,17 @@ import { getDeductible } from '../actions/index';
 import PctyAccumulator from '../../pcty-accumulator/pcty-accumulator';
 
 const PlanDetailsActivity = ({
+    id,
+    deductible,
     outOfPocket = '6000.00',
     amtToOOP = '4359.53'
 }) => {
+    useEffect(() => {
+        getDeductible(id);
+    },[id]);
+
     const formatUSD = (amount) => {
+        if(!amount) return '$0.00';
         amount = amount.split('.');
         
         let formattedString = (amount.length === 2) ?
@@ -28,24 +35,21 @@ const PlanDetailsActivity = ({
         return formattedString;
     }
 
-    useEffect(() => {
-    }, []);
-
     return (
         <div>
             <div className="Deductible Section">
                 <span>Deductible</span>
                 <span
                   id="Deductible-total"
-                  className="Deductible Balance-amount">$500.00</span>
+                  className="Deductible Balance-amount">{formatUSD(deductible['Deductible_Totals'])}</span>
                 <PctyAccumulator
                   id="Deductible-accumulator"
-                  percentage={(1-82.06/500)*100}/>
+                  percentage={deductible['Deductible_Spent']/deductible['Deductible_Totals']}/>
                 <div className="Deductible Subtext">
                     <span>You are </span>
                     <span
                       id="Deductible-remaining"
-                      className="Deductible Subtext Amount">$82.06</span>
+                      className="Deductible Subtext Amount">{formatUSD(deductible['Deductible_Remainings'])}</span>
                     <span> away from your deductible</span>
                 </div>
             </div>
@@ -55,7 +59,7 @@ const PlanDetailsActivity = ({
                 <span className="Deductible Balance-amount">{formatUSD(outOfPocket)}</span>
                 <PctyAccumulator
                   id="OOP-accumulator"
-                  percentage={(1-amtToOOP/outOfPocket)*100}/>
+                  percentage={(amtToOOP/outOfPocket)}/>
                 <div className="Deductible Subtext">
                     <span>You are </span>
                     <span className="Deductible Subtext Amount">{formatUSD(amtToOOP)}</span>
@@ -94,4 +98,12 @@ const PlanDetailsActivity = ({
     );
 }
 
-export default PlanDetailsActivity;
+const mapStateToProps = state => {
+    return {
+        deductible: state.deductibles
+    };
+};
+
+export default connect(
+    mapStateToProps
+)(PlanDetailsActivity);

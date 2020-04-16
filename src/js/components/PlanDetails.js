@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
     useParams,
     Link
 } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PlanDetailsActivity from './PlanDetailsActivity';
 import PlanDetailsAccount from './PlanDetailsAccount';
 
@@ -11,9 +12,10 @@ const view = {
     ACCOUNT_DETAILS: 1
 };
 
-const PlanDetails = () => {
+const PlanDetails = ({ insurancePlans }) => {
     const [currentView, setCurrentView] = useState(view.ACTIVITY);
     let { id } = useParams();
+    let insurancePlan = insurancePlans.find(el => el['ID'] == id);
     
     return (
         <div className="App">
@@ -25,7 +27,7 @@ const PlanDetails = () => {
             </header>
             <img src={"https://pctybsu2020.herokuapp.com/GetInsuranceCardImage.php?uip_id="+id} className="Card-main-img" />
             <div className="Section Information">
-                <div>Blue Cross Blue Shield PPO</div>
+                <div>{insurancePlan ? insurancePlan['Description'] : ''}</div>
                 <div className="Subtext">By Blue Cross Blue Shield</div>
                 <div>
                     <a>800-555-6767</a>
@@ -49,12 +51,19 @@ const PlanDetails = () => {
                     </button>
                 </div>
                 <hr/>
-                {currentView===view.ACTIVITY ? <PlanDetailsActivity/> : null}
+                {currentView===view.ACTIVITY ? <PlanDetailsActivity id={id}/> : null}
                 {currentView===view.ACCOUNT_DETAILS ? <PlanDetailsAccount/> : null}
             </div>
         </div>
     );
 }
 
-export default PlanDetails;
+const mapStateToProps = state => {
+    return {
+        insurancePlans: state.insurancePlans
+    };
+};
 
+export default connect(
+    mapStateToProps
+)(PlanDetails);
