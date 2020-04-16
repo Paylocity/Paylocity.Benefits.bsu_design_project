@@ -108,6 +108,10 @@ button[type=submit] {
   text-align: left;
 }
 
+.Card-main-img {
+  width: 100%;
+}
+
 .Subtext {
   color: #666666;
   font-weight: 400;

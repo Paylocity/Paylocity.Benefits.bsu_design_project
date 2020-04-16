@@ -5,7 +5,6 @@ import {
 } from 'react-router-dom';
 import PlanDetailsActivity from './PlanDetailsActivity';
 import PlanDetailsAccount from './PlanDetailsAccount';
-import PctyInsuranceCard from '../../pcty-insurance-card/pcty-insurance-card';
 
 const view = {
     ACTIVITY: 0,
@@ -24,7 +23,7 @@ const PlanDetails = () => {
                 </Link>
                 <span>Plan Details</span>
             </header>
-            <PctyInsuranceCard/>
+            <img src={"https://pctybsu2020.herokuapp.com/GetInsuranceCardImage.php?uip_id="+id} className="Card-main-img" />
             <div className="Section Information">
                 <div>Blue Cross Blue Shield PPO</div>
                 <div className="Subtext">By Blue Cross Blue Shield</div>
@@ -58,3 +57,4 @@ const PlanDetails = () => {
 }
 
 export default PlanDetails;
+

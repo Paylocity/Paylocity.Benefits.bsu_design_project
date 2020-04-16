@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS UserInsurancePlanCard;
 DROP TABLE IF EXISTS UserInsurancePlan;
 DROP TABLE IF EXISTS InsuranceProvider;
 DROP TABLE IF EXISTS User;
@@ -49,5 +50,13 @@ CREATE TABLE UserInsurancePlan (
   cached_plan_timestamp  DATETIME,
   FOREIGN KEY (user_id    ) REFERENCES User(id),
   FOREIGN KEY (provider_id) REFERENCES InsuranceProvider(id)
+);
+
+CREATE TABLE UserInsurancePlanCard (
+  id                     INTEGER      PRIMARY KEY AUTO_INCREMENT,
+  uip_id                 INTEGER      NOT NULL,
+  thumbnail              BLOB         NOT NULL,
+  image                  BLOB         NOT NULL,
+  FOREIGN KEY (uip_id) REFERENCES UserInsurancePlan(id)
 );
 
