@@ -4,17 +4,13 @@ import { getDeductible } from '../actions/index';
 import PctyAccumulator from '../../pcty-accumulator/pcty-accumulator';
 
 const PlanDetailsActivity = ({
-    id,
     deductible,
     outOfPocket = '6000.00',
     amtToOOP = '4359.53'
 }) => {
-    useEffect(() => {
-        getDeductible(id);
-    },[id]);
-
     const formatUSD = (amount) => {
         if(!amount) return '$0.00';
+
         amount = amount.split('.');
         
         let formattedString = (amount.length === 2) ?
@@ -98,12 +94,4 @@ const PlanDetailsActivity = ({
     );
 }
 
-const mapStateToProps = state => {
-    return {
-        deductible: state.deductibles
-    };
-};
-
-export default connect(
-    mapStateToProps
-)(PlanDetailsActivity);
+export default PlanDetailsActivity;

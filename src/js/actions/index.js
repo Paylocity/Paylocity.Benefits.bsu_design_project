@@ -8,9 +8,9 @@ import {
 } from '../constants/action-types';
 import store from '../store/index';
 
-export function getUserInsurancePlans() {
+export function getUserInsurancePlans(userID) {
     store.dispatch((dispatch) => {
-        fetch(userInsurancePlans)
+        fetch(userInsurancePlans+userID)
           .then(response => response.json())
           .then(json => {
             dispatch({ type: ADD_INSURANCE_PLAN, payload: json });

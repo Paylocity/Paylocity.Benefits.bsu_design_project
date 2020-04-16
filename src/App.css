@@ -236,7 +236,7 @@ button[type=submit] {
   border: 1px solid #1588AF;
   border-radius: 2px;
   padding: 7px;
-  width: 45vw;
+  width: 50%;
 }
 
 .Selection-button.Selected {

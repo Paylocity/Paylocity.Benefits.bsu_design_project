@@ -4,6 +4,7 @@ import {
 } from '../constants/action-types';
 
 const initialState = {
+    userID: 123456,
     insurancePlans: [],
     deductibles: []
 };
