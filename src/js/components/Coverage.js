@@ -8,7 +8,6 @@ import {
 import { connect } from 'react-redux';
 import { getUserInsurancePlans } from '../actions/index';
 import PlanDetails from './PlanDetails';
-import PctyInsuranceCard from '../../pcty-insurance-card/pcty-insurance-card';
 import card from './test-card.jpg';
 
 const Coverage = ({ insurancePlans }) => {
@@ -40,9 +39,7 @@ const Coverage = ({ insurancePlans }) => {
                     <div className='Card-cache'>
                     {insurancePlans.map(el => (
                         <div key={el.ID} className='Card'>
-                            <div className='Card-img'>
-                                <PctyInsuranceCard provider={el.Description}/>
-                            </div>
+                            <img src={"https://pctybsu2020.herokuapp.com/GetInsuranceCardThumbnail.php?uip_id="+el.ID} className="Card-img" />
                             <div>Insurance Type</div>
                         </div>
                     ))}
@@ -157,7 +154,9 @@ const Coverage = ({ insurancePlans }) => {
 }
 
 const mapStateToProps = state => {
-    return { insurancePlans: state.insurancePlans };
+    return {
+      insurancePlans: state.insurancePlans
+    };
 };
 
 export default connect(

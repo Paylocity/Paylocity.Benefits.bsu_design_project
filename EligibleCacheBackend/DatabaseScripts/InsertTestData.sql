@@ -9,7 +9,7 @@ VALUES ('Eligible Test Provider', '1234567893', TRUE);
 
 INSERT INTO UserInsurancePlan (description, user_id, provider_id, payer_id, member_id, network, plan_level)
 VALUES (
-  'United Health Care COMPASS (individual in-network)',
+  'United Health Care COMPASS',
   (SELECT id FROM User WHERE name_last='Andesite'),
   (SELECT id FROM InsuranceProvider WHERE provider_npi='1234567893'),
   '00001',
@@ -20,7 +20,7 @@ VALUES (
 
 INSERT INTO UserInsurancePlan (description, user_id, provider_id, payer_id, member_id, network, plan_level)
 VALUES (
-  'Oxford Health (individual in-network)',
+  'Oxford Health',
   (SELECT id FROM User WHERE name_last='Andesite'),
   (SELECT id FROM InsuranceProvider WHERE provider_npi='1234567893'),
   '00001',
@@ -31,7 +31,7 @@ VALUES (
 
 INSERT INTO UserInsurancePlan (description, user_id, provider_id, payer_id, member_id, network, plan_level)
 VALUES (
-  'Harvard Pilgrim (individual in-network)',
+  'Harvard Pilgrim',
   (SELECT id FROM User WHERE name_last='Andesite'),
   (SELECT id FROM InsuranceProvider WHERE provider_npi='1234567893'),
   '00001',
@@ -42,7 +42,7 @@ VALUES (
 
 INSERT INTO UserInsurancePlan (description, user_id, provider_id, payer_id, member_id, network, plan_level)
 VALUES (
-  'TriCare Standard (individual in-network)',
+  'TriCare Standard',
   (SELECT id FROM User WHERE name_last='Boulder'),
   (SELECT id FROM InsuranceProvider WHERE provider_npi='1234567893'),
   '00001',
@@ -53,7 +53,7 @@ VALUES (
 
 INSERT INTO UserInsurancePlan (description, user_id, provider_id, payer_id, member_id, network, plan_level)
 VALUES (
-  'Premera (individual in-network)',
+  'Premera',
   (SELECT id FROM User WHERE name_last='Boulder'),
   (SELECT id FROM InsuranceProvider WHERE provider_npi='1234567893'),
   '00001',
@@ -64,7 +64,7 @@ VALUES (
 
 INSERT INTO UserInsurancePlan (description, user_id, provider_id, payer_id, member_id, network, plan_level)
 VALUES (
-  'AAK (individual in-network)',
+  'AAK',
   (SELECT id FROM User WHERE name_last='Boulder'),
   (SELECT id FROM InsuranceProvider WHERE provider_npi='1234567893'),
   '00001',
