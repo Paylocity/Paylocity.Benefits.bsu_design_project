@@ -8,6 +8,10 @@ const PlanDetailsActivity = ({
     outOfPocket = '6000.00',
     amtToOOP = '4359.53'
 }) => {
+    useEffect(() => {
+        getDeductible(id);
+    },[id]);
+
     const formatUSD = (amount) => {
         if(!amount) return '$0.00';
 
@@ -94,4 +98,12 @@ const PlanDetailsActivity = ({
     );
 }
 
-export default PlanDetailsActivity;
+const mapStateToProps = state => {
+    return {
+        deductible: state.deductibles
+    };
+};
+
+export default connect(
+    mapStateToProps
+)(PlanDetailsActivity);

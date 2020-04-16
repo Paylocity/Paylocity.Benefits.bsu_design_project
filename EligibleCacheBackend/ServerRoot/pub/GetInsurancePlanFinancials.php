@@ -15,6 +15,14 @@
        Error_Description      Only present if Error is true. Describes the
                               encountered problem in human-readable format.
 
+       Description            Description of the plan.
+
+       DescriptionSubtext     Description subtext of the plan ("By Company").
+
+       DescriptionPhone       Description phone number of the plan.
+
+       DescriptionURL         Description website of the plan.
+
        Deductible_Remainings  Remaining balance until deductible is met.
 
        Deductible_Spent       Amount spent toward deductible.
@@ -32,6 +40,7 @@
 
 function setJSONHTTPContentType(){
   header('Content-Type: application/json');
+  header("Access-Control-Allow-Origin: *");
 }
 
 // _____________________________________________________________________________
@@ -145,6 +154,21 @@ function queryDatabase_getCachedPlan($db,$uipID){
 
 // _____________________________________________________________________________
 
+/** Queries the database for the plan description.
+ *
+ *  @param  object $db    PDO object for the database connection.
+ *  @param  string $uipID User insurance plan ID number.
+ *  @return Description for the plan. */
+
+function queryDatabase_getPlanDescription($db,$uipID){
+  $stmt = $db->prepare("SELECT description, descriptionSubtext, descriptionPhone, descriptionURL FROM UserInsurancePlan WHERE id = :uip_id;");
+  $stmt->bindParam(':uip_id',$uipID);
+  $stmt->execute();
+  return $stmt->fetch();
+}
+
+// _____________________________________________________________________________
+
 /** Queries the database for the required fields needed to query Eligible for
  *  the plan details.
  *
@@ -205,13 +229,18 @@ function queryDatabase_cachePlanData($db,$uipID,$planData){
  *  @param string $planData Insurance plan data in JSON format.
  *  @param object $planTypeObj Object containing the plan network and level. */
 
-function output_planData($planData,$planTypeObj){
+function output_planData($planData,$planTypeObj,$planDescription){
   $networkType = $planTypeObj->{'network'};
   $planLevel   = $planTypeObj->{'plan_level'};
 
   $output      = new stdClass();
   $planData    = json_decode($planData);
   $deductibleA = $planData->{'plan'}->{'financials'}->{'deductible'};
+
+  $output->{'Description'       } = $planDescription['description'       ];
+  $output->{'DescriptionSubtext'} = $planDescription['descriptionSubtext'];
+  $output->{'DescriptionPhone'  } = $planDescription['descriptionPhone'  ];
+  $output->{'DescriptionURL'    } = $planDescription['descriptionURL'    ];
 
   $output->{'Deductible_Remainings'} = "0";
   $deductibleA_remainingsA = $deductibleA->{'remainings'}->{$networkType};
@@ -259,7 +288,8 @@ function main(){
     $planData    = queryEligible_getPlanData($eligibleKey,$queryFields);
     queryDatabase_cachePlanData($db,$uipID,$planData);
   }
-  output_planData($planData,$planTypeObj);
+  $planDescription = queryDatabase_getPlanDescription($db,$uipID);
+  output_planData($planData,$planTypeObj,$planDescription);
 }
 main();
 

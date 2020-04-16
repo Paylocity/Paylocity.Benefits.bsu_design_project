@@ -40,6 +40,9 @@ CREATE TABLE InsuranceProvider (
 CREATE TABLE UserInsurancePlan (
   id                     INTEGER      PRIMARY KEY AUTO_INCREMENT,
   description            VARCHAR(127) NOT NULL,
+  descriptionSubtext     VARCHAR(127) NOT NULL,
+  descriptionPhone       VARCHAR(127) NOT NULL,
+  descriptionURL         VARCHAR(127) NOT NULL,
   user_id                INTEGER      NOT NULL,
   provider_id            INTEGER      NOT NULL,
   payer_id               VARCHAR(31)  NOT NULL,

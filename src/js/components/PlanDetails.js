@@ -17,7 +17,7 @@ const PlanDetails = ({ insurancePlans, deductible }) => {
     const [currentView, setCurrentView] = useState(view.ACTIVITY);
     let { id } = useParams();
     let insurancePlan = insurancePlans.find(el => el['ID'] == id);
-console.log(deductible)
+
     useEffect(() => {
         getDeductible(id);
     },[id]);
