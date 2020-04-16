@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
     useParams,
     Link
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getDeductible } from '../actions/index';
 import PlanDetailsActivity from './PlanDetailsActivity';
 import PlanDetailsAccount from './PlanDetailsAccount';
 import PctyInsuranceCard from '../../pcty-insurance-card/pcty-insurance-card';
@@ -14,15 +13,10 @@ const view = {
     ACCOUNT_DETAILS: 1
 };
 
-const PlanDetails = ({ insurancePlans, deductible }) => {
+const PlanDetails = ({ insurancePlans }) => {
     const [currentView, setCurrentView] = useState(view.ACTIVITY);
     let { id } = useParams();
     let insurancePlan = insurancePlans.find(el => el['ID'] == id);
-
-    useEffect(() => {
-            getDeductible(id);
-        },[]
-    );
     
     return (
         <div className="App">
@@ -58,7 +52,7 @@ const PlanDetails = ({ insurancePlans, deductible }) => {
                     </button>
                 </div>
                 <hr/>
-                {currentView===view.ACTIVITY ? <PlanDetailsActivity deductible={deductible}/> : null}
+                {currentView===view.ACTIVITY ? <PlanDetailsActivity id={id}/> : null}
                 {currentView===view.ACCOUNT_DETAILS ? <PlanDetailsAccount/> : null}
             </div>
         </div>
@@ -67,8 +61,7 @@ const PlanDetails = ({ insurancePlans, deductible }) => {
 
 const mapStateToProps = state => {
     return {
-        insurancePlans: state.insurancePlans,
-        deductible: state.deductibles
+        insurancePlans: state.insurancePlans
     };
 };
 

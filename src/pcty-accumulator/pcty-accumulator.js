@@ -3,7 +3,7 @@ import './pcty-accumulator.css';
 
 const PctyAccumulator = ({ id, percentage }) => {
     const calculateFill = function (width) {
-        return width*(percentage/100);
+        return width*(percentage);
     }
 
     const renderAccumulator = function () {
@@ -11,6 +11,12 @@ const PctyAccumulator = ({ id, percentage }) => {
         const ctx = accumulator.getContext('2d');
 
         ctx.fillStyle = '#249661';
+        ctx.clearRect(
+            0,
+            0,
+            accumulator.width,
+            accumulator.height
+        );
         ctx.fillRect(
             0, 
             0, 
@@ -21,7 +27,7 @@ const PctyAccumulator = ({ id, percentage }) => {
 
     useEffect(() => {
         renderAccumulator();
-    });
+    },[percentage]);
 
     return (
         <canvas id={id} className="Pcty-accumulator"/>

@@ -4,10 +4,15 @@ import { getDeductible } from '../actions/index';
 import PctyAccumulator from '../../pcty-accumulator/pcty-accumulator';
 
 const PlanDetailsActivity = ({
+    id,
     deductible,
     outOfPocket = '6000.00',
     amtToOOP = '4359.53'
 }) => {
+    useEffect(() => {
+        getDeductible(id);
+    },[id]);
+
     const formatUSD = (amount) => {
         if(!amount) return;
 
@@ -31,9 +36,6 @@ const PlanDetailsActivity = ({
         return formattedString;
     }
 
-    useEffect(() => {
-    }, []);
-
     return (
         <div>
             <div className="Deductible Section">
@@ -43,7 +45,7 @@ const PlanDetailsActivity = ({
                   className="Deductible Balance-amount">{formatUSD(deductible['Deductible_Totals'])}</span>
                 <PctyAccumulator
                   id="Deductible-accumulator"
-                  percentage={(deductible['Deductible_Spent']/deductible['Deductible_Totals'])*100}/>
+                  percentage={deductible['Deductible_Spent']/deductible['Deductible_Totals']}/>
                 <div className="Deductible Subtext">
                     <span>You are </span>
                     <span
@@ -58,7 +60,7 @@ const PlanDetailsActivity = ({
                 <span className="Deductible Balance-amount">{formatUSD(outOfPocket)}</span>
                 <PctyAccumulator
                   id="OOP-accumulator"
-                  percentage={(1-amtToOOP/outOfPocket)*100}/>
+                  percentage={(amtToOOP/outOfPocket)}/>
                 <div className="Deductible Subtext">
                     <span>You are </span>
                     <span className="Deductible Subtext Amount">{formatUSD(amtToOOP)}</span>
@@ -97,4 +99,12 @@ const PlanDetailsActivity = ({
     );
 }
 
-export default PlanDetailsActivity;
+const mapStateToProps = state => {
+    return {
+        deductible: state.deductibles
+    };
+};
+
+export default connect(
+    mapStateToProps
+)(PlanDetailsActivity);
