@@ -3,7 +3,7 @@
   padding          : 0;
   box-sizing       : border-box;
   overflow         : hidden;
-  font-size        : 3vw;
+  font-size        : calc(8px + 2vmin);
   background-color : white;
   color            : #0C85C4;
   border-radius    : 5%;

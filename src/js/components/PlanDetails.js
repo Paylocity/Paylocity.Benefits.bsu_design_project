@@ -6,7 +6,6 @@ import {
 import { connect } from 'react-redux';
 import PlanDetailsActivity from './PlanDetailsActivity';
 import PlanDetailsAccount from './PlanDetailsAccount';
-import PctyInsuranceCard from '../../pcty-insurance-card/pcty-insurance-card';
 
 const view = {
     ACTIVITY: 0,
@@ -26,7 +25,7 @@ const PlanDetails = ({ insurancePlans }) => {
                 </Link>
                 <span>Plan Details</span>
             </header>
-            <PctyInsuranceCard provider={insurancePlan ? insurancePlan['Description'] : ''}/>
+            <img src={"https://pctybsu2020.herokuapp.com/GetInsuranceCardImage.php?uip_id="+id} className="Card-main-img" />
             <div className="Section Information">
                 <div>{insurancePlan ? insurancePlan['Description'] : ''}</div>
                 <div className="Subtext">By Blue Cross Blue Shield</div>

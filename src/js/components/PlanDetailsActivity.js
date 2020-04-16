@@ -14,8 +14,7 @@ const PlanDetailsActivity = ({
     },[id]);
 
     const formatUSD = (amount) => {
-        if(!amount) return;
-
+        if(!amount) return '$0.00';
         amount = amount.split('.');
         
         let formattedString = (amount.length === 2) ?
