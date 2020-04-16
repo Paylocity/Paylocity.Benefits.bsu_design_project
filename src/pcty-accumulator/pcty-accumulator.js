@@ -6,7 +6,7 @@ const PctyAccumulator = ({ id, percentage }) => {
         return width*(percentage);
     }
 
-    const renderAccumulator = function () {
+    const renderAccumulator = () => {
         const accumulator = document.getElementById(id);
         const ctx = accumulator.getContext('2d');
 
