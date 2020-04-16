@@ -10,11 +10,11 @@ import { getUserInsurancePlans } from '../actions/index';
 import PlanDetails from './PlanDetails';
 import card from './test-card.jpg';
 
-const Coverage = ({ insurancePlans }) => {
+const Coverage = ({ userID, insurancePlans }) => {
     let match = useRouteMatch();
 
     useEffect(() => {
-            getUserInsurancePlans();
+            getUserInsurancePlans(userID);
         },[]
     );
 
@@ -155,7 +155,8 @@ const Coverage = ({ insurancePlans }) => {
 
 const mapStateToProps = state => {
     return {
-      insurancePlans: state.insurancePlans
+        userID: state.userID,
+        insurancePlans: state.insurancePlans
     };
 };
 

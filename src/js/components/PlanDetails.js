@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     useParams,
     Link
 } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { getDeductible } from '../actions/index';
 import PlanDetailsActivity from './PlanDetailsActivity';
 import PlanDetailsAccount from './PlanDetailsAccount';
 
@@ -12,10 +13,14 @@ const view = {
     ACCOUNT_DETAILS: 1
 };
 
-const PlanDetails = ({ insurancePlans }) => {
+const PlanDetails = ({ insurancePlans, deductible }) => {
     const [currentView, setCurrentView] = useState(view.ACTIVITY);
     let { id } = useParams();
     let insurancePlan = insurancePlans.find(el => el['ID'] == id);
+
+    useEffect(() => {
+        getDeductible(id);
+    },[id]);
     
     return (
         <div className="App">
@@ -28,12 +33,12 @@ const PlanDetails = ({ insurancePlans }) => {
             <img src={"https://pctybsu2020.herokuapp.com/GetInsuranceCardImage.php?uip_id="+id} className="Card-main-img" />
             <div className="Section Information">
                 <div>{insurancePlan ? insurancePlan['Description'] : ''}</div>
-                <div className="Subtext">By Blue Cross Blue Shield</div>
+                <div className="Subtext">{deductible['DescriptionSubtext']}</div>
                 <div>
-                    <a>800-555-6767</a>
+                    <a>{deductible['DescriptionPhone']}</a>
                 </div>
                 <div>
-                    <a href="https://www.bcbsil.com">https://www.bcbsil.com</a>
+                    <a href={deductible['DescriptionURL']}>{deductible['DescriptionURL']}</a>
                 </div>
             </div>
             <hr/>
@@ -51,7 +56,7 @@ const PlanDetails = ({ insurancePlans }) => {
                     </button>
                 </div>
                 <hr/>
-                {currentView===view.ACTIVITY ? <PlanDetailsActivity id={id}/> : null}
+                {currentView===view.ACTIVITY ? <PlanDetailsActivity deductible={deductible}/> : null}
                 {currentView===view.ACCOUNT_DETAILS ? <PlanDetailsAccount/> : null}
             </div>
         </div>
@@ -60,7 +65,8 @@ const PlanDetails = ({ insurancePlans }) => {
 
 const mapStateToProps = state => {
     return {
-        insurancePlans: state.insurancePlans
+        insurancePlans: state.insurancePlans,
+        deductible: state.deductibles
     };
 };
 

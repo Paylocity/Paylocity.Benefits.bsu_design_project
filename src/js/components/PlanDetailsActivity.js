@@ -4,7 +4,6 @@ import { getDeductible } from '../actions/index';
 import PctyAccumulator from '../../pcty-accumulator/pcty-accumulator';
 
 const PlanDetailsActivity = ({
-    id,
     deductible,
     outOfPocket = '6000.00',
     amtToOOP = '4359.53'
@@ -15,6 +14,7 @@ const PlanDetailsActivity = ({
 
     const formatUSD = (amount) => {
         if(!amount) return '$0.00';
+
         amount = amount.split('.');
         
         let formattedString = (amount.length === 2) ?
