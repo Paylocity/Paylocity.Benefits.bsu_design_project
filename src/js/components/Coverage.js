@@ -40,7 +40,7 @@ const Coverage = ({ userID, insurancePlans }) => {
                     {insurancePlans.map(el => (
                         <div key={el.ID} className='Card'>
                             <img src={"https://pctybsu2020.herokuapp.com/GetInsuranceCardThumbnail.php?uip_id="+el.ID} className="Card-img" />
-                            <div>Insurance Type</div>
+                            <div>Medical</div>
                         </div>
                     ))}
                     </div>

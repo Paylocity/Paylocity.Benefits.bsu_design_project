@@ -9,8 +9,8 @@ const PlanDetailsActivity = ({
     amtToOOP = '4359.53'
 }) => {
     useEffect(() => {
-        getDeductible(id);
-    },[id]);
+        getDeductible();
+    },[]);
 
     const formatUSD = (amount) => {
         if(!amount) return '$0.00';

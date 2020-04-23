@@ -26,72 +26,11 @@
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
+require 'SharedFunctions.php';
 
 // =============================================================================
 // FUNCTIONS
 // =============================================================================
-
-/** Sets the content type of the HTTP header to JSON. */
-
-function setJSONHTTPContentType(){
-  header('Content-Type: application/json');
-}
-
-// _____________________________________________________________________________
-
-/** Validates and returns the database API key. Outputs an error JSON object and
- *  terminates if the key is invalid or not set.
- *
- *  @retval string Database API key. */
-
-function getAndValidateDatabaseAPIKey(){
-  if(!file_exists('../APIKeys/Database.key')){
-    $output = new stdClass();
-    $output->{'Error'} = true;
-    $output->{'Error_Description'} = 'Database API key is not present.';
-    echo json_encode($output);
-    die();
-  }
-
-  return trim(file_get_contents('../APIKeys/Database.key'));
-}
-
-// _____________________________________________________________________________
-
-/** Validates and returns the employee ID parameter. Outputs an error JSON
- *  object and terminates if the employee ID is invalid or not set.
- *
- *  @retval string Employee ID. */
-
-function getAndValidateParam_EmployeeID(){
-  if(!isset($_GET['employee_id'])){
-    $output = new stdClass();
-    $output->{'Error'} = true;
-    $output->{'Error_Description'} = 'Employee ID was not specified.';
-    echo json_encode($output);
-    die();
-  }
-
-  return $_GET['employee_id'];
-}
-
-// _____________________________________________________________________________
-
-/** Returns a PDO object for the database.
- *
- *  @param  string $dbKey Database key.
- *  @retval object Database PDO object. */
-
-function getDatabaseConnection($dbKey){
-  $url  = parse_url($dbKey);
-  $host = $url["host"];
-  $db   = substr($url["path"], 1);
-  $user = $url["user"];
-  $pass = $url["pass"];
-  return new PDO("mysql:host=$host;dbname=$db;", $user, $pass);
-}
-
-// _____________________________________________________________________________
 
 /** Queries the database for insurance plans for an employee.
  *

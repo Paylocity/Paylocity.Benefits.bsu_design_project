@@ -22,6 +22,9 @@ const PlanDetails = ({ insurancePlans, deductible }) => {
         getDeductible(id);
     },[id]);
     
+    function selectUploadFile(){document.getElementById('cardImage').click();}
+    function submitUploadFile(){document.getElementById('submit').click();}
+
     return (
         <div className="App">
             <header>
@@ -30,7 +33,11 @@ const PlanDetails = ({ insurancePlans, deductible }) => {
                 </Link>
                 <span>Plan Details</span>
             </header>
-            <img src={"https://pctybsu2020.herokuapp.com/GetInsuranceCardImage.php?uip_id="+id} className="Card-main-img" />
+            <form action={"https://pctybsu2020.herokuapp.com/UploadInsuranceCardImage.php?uip_id="+id} method="post" encType="multipart/form-data" style={{display:'none'}}>
+                <input type="file" name="cardImage" id="cardImage" onChange={submitUploadFile} />
+                <input type="submit" value="Upload Image" name="submit" id="submit" />
+            </form>
+            <img src={"https://pctybsu2020.herokuapp.com/GetInsuranceCardImage.php?uip_id="+id} className="Card-main-img" onClick={selectUploadFile} />
             <div className="Section Information">
                 <div>{insurancePlan ? insurancePlan['Description'] : ''}</div>
                 <div className="Subtext">{deductible['DescriptionSubtext']}</div>

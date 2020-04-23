@@ -14,33 +14,36 @@
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
+require 'SharedFunctions.php';
 
 // =============================================================================
 // FUNCTIONS
 // =============================================================================
 
-// _____________________________________________________________________________
-
-/** Validates and returns the user insurance plan ID parameter. Outputs an error
- *  JSON object and terminates if the employee ID is invalid or not set.
- *
- *  @retval string User insurance plan ID. */
-
-function getAndValidateParam_UserInsurancePlanID(){
-  if(!isset($_GET['uip_id'])){
-    $output = new stdClass();
-    $output->{'Error'} = true;
-    $output->{'Error_Description'} = 'User insurance plan ID was not specified.';
-    echo json_encode($output);
-    die();
-  }
-
-  return $_GET['uip_id'];
+function queryDatabase_getThumbnailImage($db,$uipID){
+  $stmt = $db->prepare("SELECT thumbnail FROM UserInsurancePlanCard WHERE uip_id = :uip_id;");
+  $stmt->bindParam(':uip_id',$uipID);
+  $stmt->execute();
+  $result = $stmt->fetch();
+  return ($result ? $result['thumbnail'] : false);
 }
 
+// =============================================================================
+// ENTRY POINT
+// =============================================================================
+
 function main(){
+  $dbKey = getAndValidateDatabaseAPIKey();
   $uipID = getAndValidateParam_UserInsurancePlanID();
-  header("Location: GetInsuranceCardPlaceholder.php?overlay=0&uip_id=" . $uipID);
+  $db    = getDatabaseConnection($dbKey);
+  $img   = queryDatabase_getThumbnailImage($db,$uipID);
+  if($img == false){
+    header("Location: GetInsuranceCardPlaceholder.php?overlay=0&uip_id=" . $uipID);
+  }else{
+    header('Content-type: '  .(new finfo(FILEINFO_MIME))->buffer($img));
+    header('Content-Length: '.strlen($img));
+    echo $img;
+  }
 }
 main();
 
