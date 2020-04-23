@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { getDeductible } from '../actions/index';
+import React from 'react';
 import PctyAccumulator from '../../pcty-accumulator/pcty-accumulator';
 
 const PlanDetailsActivity = ({
@@ -8,9 +6,6 @@ const PlanDetailsActivity = ({
     outOfPocket = '6000.00',
     amtToOOP = '4359.53'
 }) => {
-    useEffect(() => {
-        getDeductible();
-    },[]);
 
     const formatUSD = (amount) => {
         if(!amount) return '$0.00';
@@ -98,12 +93,4 @@ const PlanDetailsActivity = ({
     );
 }
 
-const mapStateToProps = state => {
-    return {
-        deductible: state.deductibles
-    };
-};
-
-export default connect(
-    mapStateToProps
-)(PlanDetailsActivity);
+export default PlanDetailsActivity;

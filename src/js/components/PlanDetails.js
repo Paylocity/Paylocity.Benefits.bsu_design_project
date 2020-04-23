@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-    useParams,
-    Link
-} from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getDeductible } from '../actions/index';
 import PlanDetailsActivity from './PlanDetailsActivity';
