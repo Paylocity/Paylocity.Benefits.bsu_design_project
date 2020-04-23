@@ -99,7 +99,7 @@ const Coverage = ({ userID, insurancePlans }) => {
                             <div key={el.ID}>
                                 <Link to={`${match.url}/${el.ID}`}
                                   className='Partition Service'>
-                                    <div>Insurance Type</div>
+                                    <div>Medical</div>
                                     <div className='Plan'>Coverage</div>
                                     <div className='Provider'>{el.Description}</div>
                                 </Link>
